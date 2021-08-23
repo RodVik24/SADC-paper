@@ -1,0 +1,131 @@
+% myunits.sty: Version 1.1 - 9 Apr 2000
+%
+% based on
+% MathPhys.sty: Version 1.1a - 16 Aug 1995
+% ============= by Markus M"uhlbauer
+%
+%
+\message{Document Style Option `myunits'  Version 1.1 of 9 Aug 2000}
+
+{\catcode`@=11
+% --- Test auf NFSS
+ \@ifundefined{extract@font}{
+   \gdef\mathrm#1{{\rm#1}} \gdef\mathsl#1{{\sl#1}} \gdef\mathit#1{{\it#1}}
+   \message{- myunits: NFFS not present -- using OFFS}
+ }{}
+
+% --- Zehner-Potenzen
+ \gdef\EE{\@ifnextchar*{\@EE}{\cdot\@EE*}}
+ \gdef\@EE*#1{\def\@tempa{#1}\def\@tempb{1}\ifx\@tempa\@tempb 10 \else 10^{#1} \fi}
+
+% --- Mengen-Bezeichner
+ \gdef\IN{\mathrm {I\kern-.18em N}}
+ \gdef\IZ{\mathrm {Z\kern-.3em Z}}
+ \gdef\IR{\mathrm {I\kern-.18em R}}
+ \gdef\IC{\mathrm {\kern+.25em\rule[.05em]{.06em}{1.4ex}\kern-.31em C}}
+
+% --- weitere Operatoren
+ \gdef\lsim{\mathrel{\mathpalette\@versim<}}
+ \gdef\gsim{\mathrel{\mathpalette\@versim>}}
+ \gdef\@versim#1#2{\lower.5ex\vbox{\baselineskip\z@skip\lineskip-.01ex
+   \ialign{$\m@th#1\hfil##\hfil$\crcr#2\crcr\sim\crcr}}}
+
+% --- Einheiten
+ \gdef\defUnit{\@ifnextchar[{\defUnit@}{\defUnit@[{},{}]}}
+ \gdef\defUnit@[#1]#2#3{\bgroup\def\@tempa{#2}\def\@tempb{#3}%
+   \def\@tempc{*}\defUnit@@#1;*,*;}
+ \gdef\defUnit@@#1,#2;{\def\@tempd{#1}\ifx\@tempc\@tempd\egroup\else%
+   \expandafter\xdef\csname #1\@tempa\endcsname{\noexpand\mathrm {#2\@tempb}}%
+   \expandafter\defUnit@@ \fi}
+
+ % - L"angen
+ \defUnit[f,f;n,n;mu,\mu;m,m;c,c;{},{};k,k]{m}{m}
+ \defUnit{Lj}{lj}
+ \defUnit[{},{};M,M]{Parsec}{ps}
+ \defUnit{AstroE}{AE}
+ \global\let\fermi=\fm
+ \gdef\aBohr{a_{\mathrm b}}
+ \global\let\aB=\aBohr
+ % - Winkel
+ \defUnit[m,m;{},{}]{rad}{rad}
+ \defUnit[m,m;{},{}]{sr}{sr}
+ % - Zeiten
+ \defUnit[f,f;p,p;n,n;mu,\mu;m,m;{},{}]{s}{s}
+ \defUnit{Min}{min}
+ \defUnit{Hour}{h}
+ \defUnit{Year}{y}
+ \defUnit[{},{};k,k;M,M;G,G]{Hz}{Hz}
+ % - Lichtgeschwindigkeit
+ \defUnit{c}{c}
+ % - Spannung
+ \defUnit[n,n;mu,\mu;m,m;k,k]{V}{\hskip-0.1em{}V}
+ \defUnit[{},{};M,M;G,G;T,T]{V}{V}
+ % - Stromst"arke
+ \defUnit[p,p;n,n;mu,\mu;m,m;{},{};k,k]{A}{A}
+ % - Ladung
+ \defUnit[p,p;n,n;mu,\mu;m,m;{},{}]{C}{C}
+ % - Widerstand, Leitwert, Kapazit"at, Induktivit"at
+ \defUnit[m,m;{},{};k,k;M,M;G,G]{Ohm}{\Omega}
+ \defUnit[m,m;{},{}]{Siemens}{S}
+ \defUnit[p,p;n,n;mu,\mu;m,m;{},{}]{F}{F}
+ \defUnit[m,m;{},{}]{H}{H}
+ % - Mag. Flussdichte
+ \defUnit[n,n;mu,\mu;m,m;{},{}]{T}{T}
+ \defUnit[{},{};k,k]{Gauss}{Gauss}
+ \defUnit{Weber}{Wb}
+ % - Kraft
+ \defUnit[{},{};k,k]{N}{N}
+ % - Leistung
+ \defUnit[mu,\mu;m,m;{},{};k,k;M,M;G,G;T,T]{W}{W}
+ % - Energie
+ \defUnit[mu,\mu;m,m;{},{};k,k;M,M;G,G;T,T]{eV}{e\hskip-0.1em{}V}
+ \defUnit[m,m;{},{};k,k;M,M;G,G;T,T]{J}{J}
+ \defUnit[{},{};k,k]{Cal}{cal}
+ \defUnit{Ry}{Ry}
+ % - Masse
+ \defUnit[f,f;p,p;n,n;mu,\mu;m,m;{},{};k,k]{g}{g}
+ \defUnit[{},{};k,k;M,M;G,G]{t}{t}
+ \defUnit{amu}{amu}
+ % - Druck
+ \defUnit[m,m;{},{};k,k;M,M;G,G;T,T]{Bar}{bar}
+ \defUnit[m,m;k,k;M,M;G,G;T,T]{bar}{bar}
+ \defUnit[m,m;{},{};h,h;k,k;M,M;G,G;T,T]{Pa}{Pa}
+ \defUnit[m,m;{},{};h,h;k,k;M,M;G,G;T,T]{atm}{atm}
+ % - Viskosit"at
+ \defUnit{Poise}{P}
+ \defUnit{Stokes}{St}
+ % - Temperatur
+ \defUnit[m,m;{},{}]{K}{K}
+ \defUnit{degC}{{^\circ C}}
+ % - Leuchtst"arke ...
+ \defUnit{Candela}{cd}
+ \defUnit{Lumen}{lm}
+ \defUnit{Lux}{lx}
+ % - Strahlenbelastung
+ \defUnit[m,m;{},{}]{Roentgen}{R}
+ \defUnit[m,m;{},{}]{Rem}{rem}
+ \defUnit[m,m;{},{}]{Sievert}{Sv}
+ \defUnit[m,m;{},{}]{Gray}{Gy}
+ \defUnit[m,m;{},{}]{Rad}{rd}
+ \defUnit{Bq}{Bq}
+ \defUnit[m,m;{},{}]{Curie}{Ci}
+ % - Stoffmenge
+ \defUnit[{},{};k,k]{mol}{mol}
+ \defUnit{ppm}{ppm}
+ \defUnit{ppb}{ppb}
+ % - D"ampfung
+ \defUnit{dB}{dB}
+ % - atomare Einheiten
+ \defUnit{au}{a.u.}
+}
+
+
+
+
+
+
+
+
+
+
+

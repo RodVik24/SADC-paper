@@ -1,0 +1,109 @@
+% def_panda_cmd.tex
+%
+\RequirePackage[centertags]{amsmath}
+%
+\RequirePackage{xspace}
+%\RequirePackage{ulem}
+%
+\def\MARK#1{\texorpdfstring{{\emph{\textcolor{red}{#1}}}}{{#1}}}
+%\def\MARK#1{\emph{\textcolor{red}{#1}}}
+%\def\MARK#1{{\bf \textcolor{red}{#1}}}
+%\def\MARK#1{{#1}}
+% use to mark text 
+% (Text will be kept, but the marking removed in the final document)
+%
+\def\COM#1{\fbox{\parbox{\swidth}{\textcolor{red}{\bf COMMENT: #1}}}}
+%\def\COM#1{}
+% use to add comments
+% (The whole will be removed in the final version)
+%
+% use to mark parts, which shouldn't be present in the cost-free version
+
+\def\OnlyLayoutColumnBreak{{\vfill\newpage}}%
+
+\def\OnlyLayoutPageBreak{{\vfill\clearpage}}%
+
+\def\OnlyLayoutDoublePageBreak{{\vfill\cleardoublepage}}%
+
+%
+\def\bfg{\begin{figure}}%
+\def\efg{\end{figure}}%
+\def\bc{\begin{center}}%
+\def\ec{\end{center}}%
+\def\bi{\begin{itemize}}%
+\def\ei{\end{itemize}}%
+\def\be{\begin{equation}}%
+\def\ee{\end{equation}}%
+\def\bn{\begin{eqnarray}}%
+\def\en{\end{eqnarray}}%
+\def\ba#1{\left(\begin{array}{#1}}%
+\def\ea{\end{array}\right)}%
+\def\bef{\begin{equation}\fbox{$\displaystyle}%
+\def\eef{$}\end{equation}}%
+\def\bnf{\bef\ba{rcl}}%
+\def\enf{\ea\eef}%
+%\def\refeq#1{\Eqref{#1}\xspace}%
+%\def\Refsec#1{sec.~\ref{#1}\xspace}%
+%\def\Refchap#1{\Refchap{#1}\xspace}%
+%\def\Reffig#1{\Reffig{#1}\xspace}%
+%\def\Reftbl#1{\Reftbl{#1}\xspace}%
+%\def\reftab#1{\Reftbl{#1}\xspace}%
+\def\Refeq#1{Eq.~\ref{#1}\xspace}%
+\def\Refeqs#1{Eqs.~\ref{#1}\xspace}%
+\def\Refsec#1{Sec.~\ref{#1}\xspace}%
+\def\Refchap#1{Chap.~\ref{#1}\xspace}%
+\def\Reffig#1{Fig.~\ref{#1}\xspace}%
+\def\Reffigs#1{Figs.~\ref{#1}\xspace}%
+\def\Reftbl#1{Table~\ref{#1}\xspace}%
+\def\Reftbls#1{Tables~\ref{#1}\xspace}%
+\def\RefeqX#1{Eq.~\ref{#1}}%
+\def\RefeqsX#1{Eqs.~\ref{#1}}%
+\def\RefsecX#1{Sec.~\ref{#1}}%
+\def\RefchapX#1{Chap.~\ref{#1}}%
+\def\ReffigX#1{Fig.~\ref{#1}}%
+\def\ReffigsX#1{Figs.~\ref{#1}}%
+\def\ReftblX#1{Table~\ref{#1}}%
+\def\ReftblsX#1{Tables~\ref{#1}}%
+%\def\Reftab#1{Table~\ref{#1}\xspace}%
+\def\ub{\underbrace}%
+%
+\def\vps{\hspace*{5mm}}%
+\def\dsty{\displaystyle}%
+%
+\newcounter{auth}%
+\setcounter{auth}{0}%
+\def\authitem#1{\addtocounter{auth}{1}#1}%
+\def\authitemi#1#2{\addtocounter{auth}{1}#2$^{#1}$}%
+\newcounter{inst}%
+\setcounter{inst}{0}%
+\def\institem#1{\par \addtocounter{inst}{1}#1\\}%
+\def\lastitem{\ }%
+\def\respitem#1{\institem{{\bf #1}\lastitem\\}}%
+\let\groupitem=\authitem
+%
+\newcommand{\captionfonts}{\small}
+%
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\captionfonts {\bf #1:} #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\captionfonts {\bf #1:} #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+%
+% a few commands to change the figure placing (commented are the default values)
+%\renewcommand{\textfraction}{0.1} % 0.2
+%\renewcommand{\bottomfraction}{0.4} % 0.3
+%\renewcommand{\dbltopfraction}{0.8} % 0.7
+%\renewcommand{\dblfloatpagefraction}{0.3} % 0.5
+%\renewcommand{\floatpagefraction}{0.3} % 0.5
+%\setcounter{dbltopnumber}{3} % 2
+%\setcounter{bottomnumber}{2} % 1
+%
+\def\markpanda#1#2{\markboth{\Panda{} - #1}{FAIR/PANDA/#2}}%
+%
+% EOF: def_panda_cmd.tex

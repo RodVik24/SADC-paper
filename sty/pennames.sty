@@ -1,0 +1,989 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                    %
+%  This is pennames.sty                                              %
+%                                                                    %
+%  It contains the definition of the short names for the PEN         %
+%  Elementary Particle Naming Scheme, described in CNL 203, pp 8-11  %
+%                                                                    %
+%  Version 1.0: Original version -  4 Oct 1991 (evh)                 %
+%          1.1: \def,\relax\ifmmode instead of \mbox                 %
+%               16 Oct 1991 (mg)                                     %   
+%          1.2: Corrections for upsilon and psi - 21 Oct 1991 (evh)  %
+%          1.3: Line lenghts < 80 charcaters - 22 Oct 1991 (mg)      %
+%          1.4: Add definitions for NFSS (\mathrm instead of \rm)    %
+%               27 May 1993 (mg)                                     %   
+%          1.5: Add definitions \PaD, \PaDz, \PaB, \PaBz             %
+%               \Pq, \Paq, \Pqd, \Paqd, \Pqu, \Paqu, \Pqs, \Paqs     %
+%               \Pqc, \Paqc, \Pqb, \Paqb, \Pqt, \Paqt, PaP, PagL     %
+%               \PagSm, \PagSp, \PagSz, \PagXz, \PagXp, \PagOp, \PaSq%
+%               12 Jul 1993 (mg)                                     %   
+%          1.6: Include \relax to force expansion of \if (DCa)       %
+%               Add % at end of every command to eliminate possible  %
+%               parasitic white space.                               %
+%                6 Feb 1994 (mg)                                     %   
+%                                                                    %
+%  Authors: Michel Goossens and Eric van Herwijnen                   %
+%           CERN, Geneva, Switzerland                                %
+%                                                                    %
+%  Last Mod.  6 Feb 1994 (mg)                                        %
+%                                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx\selectfont\undefined% Pre-NFSS font specs
+ \def\Pgg{\relax\ifmmode{\rm \gamma}%
+          \else${\rm \gamma}$\fi}%
+ \def\PW{\relax\ifmmode{\rm W}%
+         \else${\rm W }$\fi}%
+ \def\PWp{\relax\ifmmode{\rm W^+}%
+          \else${\rm W^+}$\fi}%
+ \def\PWm{\relax\ifmmode{\rm W^-}%
+          \else${\rm W^-}$\fi}%
+ \def\PZz{\relax\ifmmode{\rm Z^0}%
+          \else${\rm Z^0}$\fi}%
+ \def\PHz{\relax\ifmmode{\rm H^0}%
+          \else${\rm H^0}$\fi}%
+ \def\PHpm{\relax\ifmmode{\rm H^{\pm}}%
+           \else${\rm H^{\pm}}$\fi}%
+ \def\PWR{\relax\ifmmode{\rm W_R}%
+          \else${\rm W_R}$\fi}%
+ \def\PWpr{\relax\ifmmode{\rm W^{\prime}}%
+           \else${\rm W^{\prime}}$\fi}%
+ \def\PZLR{\relax\ifmmode{\rm Z_{LR}}%
+           \else${\rm Z_{LR}}$\fi}%
+ \def\PZgc{\relax\ifmmode{\rm Z_{\chi}}%
+           \else${\rm Z_{\chi}}$\fi}%
+ \def\PZgy{\relax\ifmmode{\rm Z_{\psi}}%
+           \else${\rm Z_{\psi}}$\fi}%
+ \def\PZge{\relax\ifmmode{\rm Z_{\eta}}%
+           \else${\rm Z_{\eta}}$\fi}%
+ \def\PZi{\relax\ifmmode{\rm Z_1}%
+          \else${\rm Z_1}$\fi}%
+ \def\PAz{\relax\ifmmode{\rm A^0}%
+          \else${\rm A^0}$\fi}%
+ \def\Pgne{\relax\ifmmode{\nu_{\rm e}}%
+           \else$\nu_{\rm e}$\fi}%
+ \def\Pagne{\relax\ifmmode{\overline{\nu}_{\rm e}}%
+            \else$\overline{\nu}_{\rm e}$\fi}%
+ \def\Pgngm{\relax\ifmmode{\rm \nu_{\mu}}%
+            \else${\rm \nu_{\mu}}$\fi}%
+ \def\Pagngm{\relax\ifmmode{\rm \overline{\nu}_{\mu}}%
+             \else${\rm \overline{\nu}_{\mu}}$\fi}%
+ \def\Pgngt{\relax\ifmmode{\rm \nu_{\tau}}%
+            \else${\rm \nu_{\tau}}$\fi}%
+ \def\Pagngt{\relax\ifmmode{\rm \overline{\nu}_{\tau}}%
+             \else${\rm \overline{\nu}_{\tau}}$\fi}%
+ \def\Pe{\relax\ifmmode{\rm e}%
+         \else${\rm e}$\fi}%
+ \def\Pep{\relax\ifmmode{\rm e^+}%
+          \else${\rm e^+}$\fi}%
+ \def\Pem{\relax\ifmmode{\rm e^-}%
+          \else${\rm e^-}$\fi}%
+ \def\Pepm{\relax\ifmmode{\rm e^\pm}%
+          \else${\rm e^\pm}$\fi}%
+ \def\Pgm{\relax\ifmmode{\rm \mu}%
+          \else${\rm \mu}$\fi}%
+ \def\Pgmm{\relax\ifmmode{\rm \mu^-}%
+           \else${\rm \mu^-}$\fi}%
+ \def\Pgmp{\relax\ifmmode{\rm \mu^+}%
+           \else${\rm \mu^+}$\fi}%
+ \def\Pgmpm{\relax\ifmmode{\rm \mu^\pm}%
+           \else${\rm \mu^\pm}$\fi}%
+ \def\Pgt{\relax\ifmmode{\rm \tau}%
+          \else${\rm \tau}$\fi}%
+ \def\PLpm{\relax\ifmmode{\rm L^{\pm}}%
+           \else${\rm L^{\pm}}$\fi}%
+ \def\PLz{\relax\ifmmode{\rm L^0}%
+          \else${\rm L^0}$\fi}%
+ \def\PEz{\relax\ifmmode{\rm E^0}%
+          \else${\rm E^0}$\fi}%
+ \def\Pgp{\relax\ifmmode{\rm \pi}%
+          \else${\rm \pi }$\fi}%
+ \def\Pgpm{\relax\ifmmode{\rm \pi^-}%
+           \else${\rm \pi^-}$\fi}%
+ \def\Pgpp{\relax\ifmmode{\rm \pi^+}%
+           \else${\rm \pi^+}$\fi}%
+ \def\Pgppm{\relax\ifmmode{\rm \pi^{\pm }}%
+            \else${\rm \pi^{\pm }}$\fi}%
+ \def\Pgpz{\relax\ifmmode{\rm \pi^0}%
+           \else${\rm \pi^0 }$\fi}%
+ \def\Pgh{\relax\ifmmode{\rm \eta}%
+          \else${\rm \eta }$\fi}%
+ \def\Pgr{\relax\ifmmode{\rm \rho(770)}%
+          \else${\rm \rho(770)}$\fi}%
+ \def\Pgo{\relax\ifmmode{\rm \omega(783)}%
+          \else${\rm \omega(783)}$\fi}%
+ \def\Pghpr{\relax\ifmmode{\rm \eta^{\prime}(958)}%
+            \else${\rm \eta^{\prime}(958)}$\fi}%
+ \def\Pfz{\relax\ifmmode{\rm f_0(975)}%
+          \else${\rm f_0(975)}$\fi}%
+ \def\Paz{\relax\ifmmode{\rm a_0(980)}%
+          \else${\rm a_0(980)}$\fi}%
+ \def\Pgf{\relax\ifmmode{\rm \phi(1020)}%
+          \else${\rm \phi(1020)}$\fi}%
+ \def\Phia{\relax\ifmmode{\rm h_1(1170)}%
+           \else${\rm h_1(1170)}$\fi}%
+ \def\Pbi{\relax\ifmmode{\rm b_1(1235)}%
+          \else${\rm b_1(1235)}$\fi}%
+ \def\Pai{\relax\ifmmode{\rm a_1(1260)}%
+          \else${\rm a_1(1260)}$\fi}%
+ \def\Pfii{\relax\ifmmode{\rm f_2(1270)}%
+           \else${\rm f_2(1270)}$\fi}%
+ \def\Pfi{\relax\ifmmode{\rm f_1(1285)}%
+          \else${\rm f_1(1285)}$\fi}%
+ \def\Pgha{\relax\ifmmode{\rm \eta(1295)}%
+           \else${\rm \eta(1295)}$\fi}%
+ \def\Pgpa{\relax\ifmmode{\rm \pi(1300)}%
+           \else${\rm \pi(1300)}$\fi}%
+ \def\Paii{\relax\ifmmode{\rm a_2(1320)}%
+           \else${\rm a_2(1320)}$\fi}%
+ \def\Pgoa{\relax\ifmmode{\rm \omega(1390)}%
+           \else${\rm \omega(1390)}$\fi}%
+ \def\Pfza{\relax\ifmmode{\rm f_0(1400)}%
+           \else${\rm f_0(1400)}$\fi}%
+ \def\Pfia{\relax\ifmmode{\rm f_1 (1390)}%
+           \else${\rm f_1 (1390)}$\fi}%
+ \def\Pghb{\relax\ifmmode{\rm \eta(1440)}%
+           \else${\rm \eta(1440)}$\fi}%
+ \def\Pgra{\relax\ifmmode{\rm \rho(1450)}%
+           \else${\rm \rho(1450)}$\fi}%
+ \def\Pfib{\relax\ifmmode{\rm f_1(1510)}%
+           \else${\rm f_1(1510)}$\fi}%
+ \def\Pfiipr{\relax\ifmmode{\rm f^{\prime}_2(1525)}%
+             \else${\rm f^{\prime}_2(1525)}$\fi}%
+ \def\Pfzb{\relax\ifmmode{\rm f_0(1590)}%
+           \else${\rm f_0(1590)}$\fi}%
+ \def\Pgob{\relax\ifmmode{\rm \omega(1600)}%
+           \else${\rm \omega(1600)}$\fi}%
+ \def\Pgoiii{\relax\ifmmode{\rm \omega_3(1670)}%
+             \else${\rm \omega_3(1670)}$\fi}%
+ \def\Pgpii{\relax\ifmmode{\rm \pi_2(1670)}%
+            \else${\rm \pi_2(1670)}$\fi}%
+ \def\Pgfa{\relax\ifmmode{\rm \phi(1680)}%
+           \else${\rm \phi(1680)}$\fi}%
+ \def\Pgriii{\relax\ifmmode{\rm \rho_3(1690)}%
+             \else${\rm \rho_3(1690)}$\fi}%
+ \def\Pgrb{\relax\ifmmode{\rm \rho(1700)}%
+           \else${\rm \rho(1700)}$\fi}%
+ \def\Pfiia{\relax\ifmmode{\rm f_2(1720)}%
+            \else${\rm f_2(1720)}$\fi}%
+ \def\Pgfiii{\relax\ifmmode{\rm \phi_3(1850)}%
+             \else${\rm \phi_3(1850)}$\fi}%
+ \def\Pfiib{\relax\ifmmode{\rm f_2(2010)}%
+            \else${\rm f_2(2010)}$\fi}%
+ \def\Pfiv{\relax\ifmmode{\rm f_4(2050)}%
+           \else${\rm f_4(2050)}$\fi}%
+ \def\Pfiic{\relax\ifmmode{\rm f_2(2300)}%
+            \else${\rm f_2(2300)}$\fi}%
+ \def\Pfiid{\relax\ifmmode{\rm f_2(2340)}%
+            \else${\rm f_2(2340)}$\fi}%
+ \def\PK{\relax\ifmmode{\rm K}%
+         \else${\rm K}$\fi}%
+ \def\PKpm{\relax\ifmmode{\rm K^{\pm}}%
+           \else${\rm K^{\pm}}$\fi}%
+ \def\PKp{\relax\ifmmode{\rm K^+}%
+          \else${\rm K^+}$\fi}%
+ \def\PKm{\relax\ifmmode{\rm K^-}%
+          \else${\rm K^-}$\fi}%
+ \def\PKz{\relax\ifmmode{\rm K^0}%
+          \else${\rm K^0}$\fi}%
+ \def\PaKz{\relax\ifmmode{\overline{\rm K}^0}%
+           \else$\overline{\rm K}^0$\fi}%
+ \def\PKgmiii{\relax\ifmmode{\rm K_{\mu 3}}%
+              \else${\rm K_{\mu 3}}$\fi}%
+ \def\PKeiii{\relax\ifmmode{\rm K_{\rm e3}}%
+             \else${\rm K_{\rm e3}}$\fi}%
+ \def\PKzS{\relax\ifmmode{\rm K^0_{\rm S}}%
+           \else${\rm K^0_{\rm S}}$\fi}%
+ \def\PKzL{\relax\ifmmode{\rm K^0_{\rm L}}%
+           \else${\rm K^0_{\rm L}}$\fi}%
+ \def\PKzgmiii{\relax\ifmmode{\rm K^0_{\mu 3}}%
+               \else${\rm K^0_{\mu 3}}$\fi}%
+ \def\PKzeiii{\relax\ifmmode{\rm K^0_{{\rm e}3}}%
+              \else${\rm K^0_{{\rm e}3}}$\fi}%
+ \def\PKst{\relax\ifmmode{\rm K^{\ast}(892)}%
+           \else${\rm K^{\ast}(892)}$\fi}%
+ \def\PKi{\relax\ifmmode{\rm K_1(1270)}%
+          \else${\rm K_1(1270)}$\fi}%
+ \def\PKsta{\relax\ifmmode{\rm K^{\ast}(1370)}%
+            \else${\rm K^{\ast}(1370)}$\fi}%
+ \def\PKia{\relax\ifmmode{\rm K_1(1400)}%
+           \else${\rm K_1(1400)}$\fi}%
+ \def\PKstz{\relax\ifmmode{\rm K^{\ast}_0(1430)}%
+            \else${\rm K^{\ast}_0(1430)}$\fi}%
+ \def\PKstii{\relax\ifmmode{\rm K^{\ast}_2(1430)}%
+             \else${\rm K^{\ast}_2(1430)}$\fi}%
+ \def\PKstb{\relax\ifmmode{\rm K^{\ast}(1680)}%
+            \else${\rm K^{\ast}(1680)}$\fi}%
+ \def\PKii{\relax\ifmmode{\rm K_2(1770)}%
+           \else${\rm K_2(1770)}$\fi}%
+ \def\PKstiii{\relax\ifmmode{\rm K^{\ast}_3(1780)}%
+              \else${\rm K^{\ast}_3(1780)}$\fi}%
+ \def\PKstiv{\relax\ifmmode{\rm K^{\ast}_4(2045)}%
+             \else${\rm K^{\ast}_4(2045)}$\fi}%
+ \def\PD{\relax\ifmmode{\rm D}%
+           \else${\rm D}$\fi}%
+ \def\PaD{\relax\ifmmode{\rm \overline{D}}%
+           \else${\rm \overline{D}}$\fi}%
+ \def\PDpm{\relax\ifmmode{\rm D^{\pm}}%
+           \else${\rm D^{\pm}}$\fi}%
+ \def\PDm{\relax\ifmmode{\rm D^-}%
+          \else${\rm D^-}$\fi}%
+ \def\PDp{\relax\ifmmode{\rm D^+}%
+          \else${\rm D^+}$\fi}%
+ \def\PDz{\relax\ifmmode{\rm D^0}%
+          \else${\rm D^0}$\fi}%
+ \def\PaDz{\relax\ifmmode{\overline{\rm D}^0}%
+           \else$\overline{\rm D}^0$\fi}%
+ \def\PDstpm{\relax\ifmmode{{\rm D}^{\ast}(2010)^{\pm}}%
+             \else${\rm D}^{\ast}(2010)^{\pm}$\fi}%
+ \def\PDstz{\relax\ifmmode{{\rm D}^{\ast}(2010)^0}%
+            \else${\rm D}^{\ast}(2010)^0$\fi}%
+ \def\PDiz{\relax\ifmmode{{\rm D}_{1}(2420)^0}%
+           \else${\rm D}_{1}(2420)^0$\fi}%
+ \def\PDstiiz{\relax\ifmmode{{\rm D}^{\ast}_{2}(2460)^0}%
+              \else${\rm D}^{\ast}_{2}(2460)^0$\fi}%
+ \def\PsDp{\relax\ifmmode{\rm D_{s}^+}%
+           \else${\rm D_{s}^+}$\fi}%
+ \def\PsDm{\relax\ifmmode{\rm D_{s}^-}%
+           \else${\rm D_{s}^-}$\fi}%
+ \def\PsDst{\relax\ifmmode{\rm D_{s}^{\ast}}%
+            \else${\rm D_{s}^{\ast}}$\fi}%
+ \def\PsDipm{\relax\ifmmode{\rm D_{s1}(2536)^{\pm}}%
+           \else${\rm D_{s1}(2536)^{\pm}}$\fi}%
+ \def\PB{\relax\ifmmode{{\rm B}}%
+          \else${\rm B}$\fi}%
+ \def\PaB{\relax\ifmmode{{\rm \overline{B}}}%
+          \else${\rm \overline{B}}$\fi}%
+ \def\PBp{\relax\ifmmode{{\rm B}^{+}}%
+           \else${\rm B}^{+}$\fi}%
+ \def\PBm{\relax\ifmmode{{\rm B}^{-}}%
+           \else${\rm B}^{-}$\fi}%
+ \def\PBpm{\relax\ifmmode{{\rm B}^{\pm}}%
+            \else${\rm B}^{\pm}$\fi}%
+ \def\PBz{\relax\ifmmode{{\rm B}^0}%
+           \else${\rm B}^0$\fi}%
+ \def\PaBz{\relax\ifmmode{{\rm \overline{B}}^0}%
+           \else${\rm \overline{B}}^0$\fi}%
+ \def\Pcgh{\relax\ifmmode{\rm {\eta}_{c}(1S)}%
+           \else${\rm {\eta}_{c}(1S)}$\fi}%
+ \def\PJgy{\relax\ifmmode{\rm J /\psi(1S)}%
+           \else${\rm J /\psi(1S)}$\fi}%
+ \def\Pcgcz{\relax\ifmmode{\rm {\chi}_{c0}(1P)}%
+            \else${\rm {\chi}_{c0}(1P)}$\fi}%
+ \def\Pcgci{\relax\ifmmode{\rm {\chi}_{c1}(1P)}%
+            \else${\rm {\chi}_{c1}(1P)}$\fi}%
+ \def\Pcgcii{\relax\ifmmode{\rm {\chi}_{c2}(1P)}%
+             \else${\rm {\chi}_{c2}(1P)}$\fi}%
+ \def\Pgy{\relax\ifmmode{\rm \psi(2S)}%
+          \else${\rm \psi(2S)}$\fi}%
+ \def\Pgya{\relax\ifmmode{\rm \psi(3770)}%
+           \else${\rm \psi(3770)}$\fi}%
+ \def\Pgyb{\relax\ifmmode{\rm \psi(4040)}%
+           \else${\rm \psi(4040)}$\fi}%
+ \def\Pgyc{\relax\ifmmode{\rm \psi(4160)}%
+           \else${\rm \psi(4160)}$\fi}%
+ \def\Pgyd{\relax\ifmmode{\rm \psi(4415)}%
+           \else${\rm \psi(4415)}$\fi}%
+ \def\PgU{\relax\ifmmode{\rm \Upsilon(1S)}%
+          \else${\rm \Upsilon(1S)}$\fi}%
+ \def\Pbgcz{\relax\ifmmode{\rm {\chi}_{b0}(1P)}%
+            \else${\rm {\chi}_{b0}(1P)}$\fi}%
+ \def\Pbgci{\relax\ifmmode{\rm {\chi}_{b1}(1P)}%
+            \else${\rm {\chi}_{b1}(1P)}$\fi}%
+ \def\Pbgcii{\relax\ifmmode{\rm {\chi}_{b2}(1P)}%
+             \else${\rm {\chi}_{b2}(1P)}$\fi}%
+ \def\PgUa{\relax\ifmmode{\rm \Upsilon(2S)}%
+           \else${\rm \Upsilon(2S)}$\fi}%
+ \def\Pbgcza{\relax\ifmmode{\rm {\chi}_{b0}(2P)}%
+             \else${\rm {\chi}_{b0}(2P)}$\fi}%
+ \def\Pbgcia{\relax\ifmmode{\rm {\chi}_{b1}(2P)}%
+             \else${\rm {\chi}_{b1}(2P)}$\fi}%
+ \def\Pbgciia{\relax\ifmmode{\rm {\chi}_{b2}(2P)}%
+              \else${\rm {\chi}_{b2}(2P)}$\fi}%
+ \def\PgUb{\relax\ifmmode{\rm \Upsilon(3S)}%
+           \else${\rm \Upsilon(3S)}$\fi}%
+ \def\PgUc{\relax\ifmmode{\rm \Upsilon(4S)}%
+           \else${\rm \Upsilon(4S)}$\fi}%
+ \def\PgUd{\relax\ifmmode{\rm \Upsilon(10860)}%
+           \else${\rm \Upsilon(10860)}$\fi}%
+ \def\PgUe{\relax\ifmmode{\rm \Upsilon(11020)}%
+           \else${\rm \Upsilon(11020)}$\fi}%
+ \def\Pq{\relax\ifmmode{\rm q}%
+         \else${\rm q}$\fi}%
+ \def\Paq{\relax\ifmmode{\rm \overline{q}}%
+         \else${\rm \overline{q}}$\fi}%
+ \def\Pqd{\relax\ifmmode{\rm q_d}%
+         \else${\rm q_d}$\fi}%
+ \def\Paqd{\relax\ifmmode{\rm \overline{q}_d}%
+         \else${\rm \overline{q}_d}$\fi}%
+ \def\Pqu{\relax\ifmmode{\rm q_u}%
+         \else${\rm q_u}$\fi}%
+ \def\Paqu{\relax\ifmmode{\rm \overline{q}_u}%
+         \else${\rm \overline{q}_u}$\fi}%
+ \def\Pqs{\relax\ifmmode{\rm q_s}%
+         \else${\rm q_s}$\fi}%
+ \def\Paqs{\relax\ifmmode{\rm \overline{q}_s}%
+         \else${\rm \overline{q}_s}$\fi}%
+ \def\Pqc{\relax\ifmmode{\rm q_c}%
+         \else${\rm q_c}$\fi}%
+ \def\Paqc{\relax\ifmmode{\rm \overline{q}_c}%
+         \else${\rm \overline{q}_c}$\fi}%
+ \def\Pqb{\relax\ifmmode{\rm q_b}%
+         \else${\rm q_b}$\fi}%
+ \def\Paqb{\relax\ifmmode{\rm \overline{q}_b}%
+         \else${\rm \overline{q}_b}$\fi}%
+ \def\Pqt{\relax\ifmmode{\rm q_t}%
+         \else${\rm q_t}$\fi}%
+ \def\Paqt{\relax\ifmmode{\rm \overline{q}_t}%
+         \else${\rm \overline{q}_t}$\fi}%
+ \def\Pp{\relax\ifmmode{\rm p}%
+         \else${\rm p}$\fi}%
+ \def\Pap{\relax\ifmmode{\rm \overline{p}}%
+         \else${\rm \overline{p}}$\fi}%
+ \def\Pn{\relax\ifmmode{\rm n}%
+         \else${\rm n}$\fi}%
+ \def\PNa{\relax\ifmmode{\rm N(1440)P_{11}}%
+          \else${\rm N(1440)P_{11}}$\fi}%
+ \def\PNb{\relax\ifmmode{\rm N(1520)D_{13}}%
+          \else${\rm N(1520)D_{13}}$\fi}%
+ \def\PNc{\relax\ifmmode{\rm N(1535)S_{11}}%
+          \else${\rm N(1535)S_{11}}$\fi}%
+ \def\PNd{\relax\ifmmode{\rm N(1650)S_{11}}%
+          \else${\rm N(1650)S_{11}}$\fi}%
+ \def\PNe{\relax\ifmmode{\rm N(1675)D_{15}}%
+          \else${\rm N(1675)D_{15}}$\fi}%
+ \def\PNf{\relax\ifmmode{\rm N(1680)F_{15}}%
+          \else${\rm N(1680)F_{15}}$\fi}%
+ \def\PNg{\relax\ifmmode{\rm N(1700)D_{13}}%
+          \else${\rm N(1700)D_{13}}$\fi}%
+ \def\PNh{\relax\ifmmode{\rm N(1710)P_{11}}%
+          \else${\rm N(1710)P_{11}}$\fi}%
+ \def\PNi{\relax\ifmmode{\rm N(1720)P_{13}}%
+          \else${\rm N(1720)P_{13}}$\fi}%
+ \def\PNj{\relax\ifmmode{\rm N(2190)G_{17}}%
+          \else${\rm N(2190)G_{17}}$\fi}%
+ \def\PNk{\relax\ifmmode{\rm N(2220)H_{19}}%
+          \else${\rm N(2220)H_{19}}$\fi}%
+ \def\PNl{\relax\ifmmode{\rm N(2250)G_{19}}%
+          \else${\rm N(2250)G_{19}}$\fi}%
+ \def\PNm{\relax\ifmmode{\rm N(2600)I_{1,11}}%
+          \else${\rm N(2600)I_{1,11}}$\fi}%
+ \def\PgDa{\relax\ifmmode{\rm \Delta(1232)P_{33}}%
+           \else${\rm \Delta(1232)P_{33}}$\fi}%
+ \def\PgDb{\relax\ifmmode{\rm \Delta(1620)S_{31}}%
+           \else${\rm \Delta(1620)S_{31}}$\fi}%
+ \def\PgDc{\relax\ifmmode{\rm \Delta(1700)D_{33}}%
+           \else${\rm \Delta(1700)D_{33}}$\fi}%
+ \def\PgDd{\relax\ifmmode{\rm \Delta(1900)S_{31}}%
+           \else${\rm \Delta(1900)S_{31}}$\fi}%
+ \def\PgDe{\relax\ifmmode{\rm \Delta(1905)F_{35}}%
+           \else${\rm \Delta(1905)F_{35}}$\fi}%
+ \def\PgDf{\relax\ifmmode{\rm \Delta(1910)P_{31}}%
+           \else${\rm \Delta(1910)P_{31}}$\fi}%
+ \def\PgDh{\relax\ifmmode{\rm \Delta(1920)P_{33}}%
+           \else${\rm \Delta(1920)P_{33}}$\fi}%
+ \def\PgDi{\relax\ifmmode{\rm \Delta(1930)D_{35}}%
+           \else${\rm \Delta(1930)D_{35}}$\fi}%
+ \def\PgDj{\relax\ifmmode{\rm \Delta(1950)F_{37}}%
+           \else${\rm \Delta(1950)F_{37}}$\fi}%
+ \def\PgDk{\relax\ifmmode{\rm \Delta(2420)H_{3,11}}%
+           \else${\rm \Delta(2420)H_{3,11}}$\fi}%
+ \def\PgL{\relax\ifmmode{\rm \Lambda}%
+          \else${\rm \Lambda}$\fi}%
+ \def\PagL{\relax\ifmmode{\rm \overline{\Lambda}}%
+          \else${\rm \overline{\Lambda}}$\fi}%
+ \def\PgLa{\relax\ifmmode{\rm \Lambda(1405) S_{01}}%
+           \else${\rm \Lambda(1405) S_{01}}$\fi}%
+ \def\PgLb{\relax\ifmmode{\rm \Lambda(1520) D_{03}}%
+           \else${\rm \Lambda(1520) D_{03}}$\fi}%
+ \def\PgLc{\relax\ifmmode{\rm \Lambda(1600) P_{01}}%
+           \else${\rm \Lambda(1600) P_{01}}$\fi}%
+ \def\PgLd{\relax\ifmmode{\rm \Lambda(1670) S_{01}}%
+           \else${\rm \Lambda(1670) S_{01}}$\fi}%
+ \def\PgLe{\relax\ifmmode{\rm \Lambda(1690) D_{03}}%
+           \else${\rm \Lambda(1690) D_{03}}$\fi}%
+ \def\PgLf{\relax\ifmmode{\rm \Lambda(1800) S_{01}}%
+           \else${\rm \Lambda(1800) S_{01}}$\fi}%
+ \def\PgLg{\relax\ifmmode{\rm \Lambda(1810) P_{01}}%
+           \else${\rm \Lambda(1810) P_{01}}$\fi}%
+ \def\PgLh{\relax\ifmmode{\rm \Lambda(1820) F_{05}}%
+           \else${\rm \Lambda(1820) F_{05}}$\fi}%
+ \def\PgLi{\relax\ifmmode{\rm \Lambda(1830) D_{05}}%
+           \else${\rm \Lambda(1830) D_{05}}$\fi}%
+ \def\PgLj{\relax\ifmmode{\rm \Lambda(1890) P_{03}}%
+           \else${\rm \Lambda(1890) P_{03}}$\fi}%
+ \def\PgLk{\relax\ifmmode{\rm \Lambda(2100) G_{07}}%
+           \else${\rm \Lambda(2100) G_{07}}$\fi}%
+ \def\PgLl{\relax\ifmmode{\rm \Lambda(2110) F_{05}}%
+           \else${\rm \Lambda(2110) F_{05}}$\fi}%
+ \def\PgLm{\relax\ifmmode{\rm \Lambda(2350) H_{09}}%
+           \else${\rm \Lambda(2350) H_{09}}$\fi}%
+ \def\PgSp{\relax\ifmmode{\rm \Sigma^+}%
+           \else${\rm \Sigma^+}$\fi}%
+ \def\PagSp{\relax\ifmmode{\rm \overline{\Sigma}^+}%
+           \else${\rm \overline{\Sigma}^+}$\fi}%
+ \def\PgSz{\relax\ifmmode{\rm \Sigma^0}%
+           \else${\rm \Sigma^0}$\fi}%
+ \def\PagSz{\relax\ifmmode{\rm \overline{\Sigma}^0}%
+           \else${\rm \overline{\Sigma}^0}$\fi}%
+ \def\PgSm{\relax\ifmmode{\rm \Sigma^-}%
+           \else${\rm \Sigma^-}$\fi}%
+ \def\PagSm{\relax\ifmmode{\rm \overline{\Sigma}^-}%
+           \else${\rm \overline{\Sigma}^-}$\fi}%
+ \def\PgSa{\relax\ifmmode{\rm \Sigma(1385) P_{13}}%
+           \else${\rm \Sigma(1385) P_{13}}$\fi}%
+ \def\PgSb{\relax\ifmmode{\rm \Sigma(1660) P_{11}}%
+           \else${\rm \Sigma(1660) P_{11}}$\fi}%
+ \def\PgSc{\relax\ifmmode{\rm \Sigma(1670) D_{13}}%
+           \else${\rm \Sigma(1670) D_{13}}$\fi}%
+ \def\PgSd{\relax\ifmmode{\rm \Sigma(1750) S_{11}}%
+           \else${\rm \Sigma(1750) S_{11}}$\fi}%
+ \def\PgSe{\relax\ifmmode{\rm \Sigma(1775) D_{15}}%
+           \else${\rm \Sigma(1775) D_{15}}$\fi}%
+ \def\PgSf{\relax\ifmmode{\rm \Sigma(1915) F_{15}}%
+           \else${\rm \Sigma(1915) F_{15}}$\fi}%
+ \def\PgSg{\relax\ifmmode{\rm \Sigma(1940) D_{13}}%
+           \else${\rm \Sigma(1940) D_{13}}$\fi}%
+ \def\PgSh{\relax\ifmmode{\rm \Sigma(2030) F_{17}}%
+           \else${\rm \Sigma(2030) F_{17}}$\fi}%
+ \def\PgSi{\relax\ifmmode{\rm \Sigma(2050)}%
+           \else${\rm \Sigma(2050)}$\fi}%
+ \def\PgXz{\relax\ifmmode{\rm \Xi^0}%
+           \else${\rm \Xi^0}$\fi}%
+ \def\PagXz{\relax\ifmmode{\rm \overline{\Xi}^0}%
+           \else${\rm \overline{\Xi}^0}$\fi}%
+ \def\PgXm{\relax\ifmmode{\rm \Xi^-}%
+           \else${\rm \Xi^-}$\fi}%
+ \def\PagXp{\relax\ifmmode{\rm \overline{\Xi}^+}%
+           \else${\rm \overline{\Xi}^+}$\fi}%
+ \def\PgXa{\relax\ifmmode{\rm \Xi(1530)P_{13}}%
+           \else${\rm \Xi(1530)P_{13}}$\fi}%
+ \def\PgXb{\relax\ifmmode{\rm \Xi(1690)}%
+           \else${\rm \Xi(1690)}$\fi}%
+ \def\PgXc{\relax\ifmmode{\rm \Xi(1820)D_{13}}%
+           \else${\rm \Xi(1820)D_{13}}$\fi}%
+ \def\PgXd{\relax\ifmmode{\rm \Xi(1950)}%
+           \else${\rm \Xi(1950)}$\fi}%
+ \def\PgXe{\relax\ifmmode{\rm \Xi(2030)}%
+           \else${\rm \Xi(2030)}$\fi}%
+ \def\PgOm{\relax\ifmmode{\rm \Omega^-}%
+           \else${\rm \Omega^-}$\fi}%
+ \def\PagOp{\relax\ifmmode{\rm \overline{\Omega}^+}%
+           \else${\rm \overline{\Omega}^+}$\fi}%
+ \def\PgOma{\relax\ifmmode{\rm \Omega(2250)^-}%
+            \else${\rm \Omega(2250)^-}$\fi}%
+ \def\PcgLp{\relax\ifmmode{\rm \Lambda_c^+}%
+            \else${\rm \Lambda_c^+}$\fi}%
+ \def\PcgXz{\relax\ifmmode{\rm \Xi_c^0}%
+            \else${\rm \Xi_c^0}$\fi}%
+ \def\PcgXp{\relax\ifmmode{\rm \Xi_c^+}%
+            \else${\rm \Xi_c^+}$\fi}%
+ \def\PcgS{\relax\ifmmode{\rm \Sigma_c(2455)}%
+           \else${\rm \Sigma_c(2455)}$\fi}%
+ \def\PSgg{\relax\ifmmode{\rm \widetilde{\gamma}}%
+           \else${\rm \widetilde{\gamma}}$\fi}%
+ \def\PSgxz{\relax\ifmmode{\rm \widetilde{\chi}^0_i}%
+            \else${\rm \widetilde{\chi}^0_i}$\fi}%
+ \def\PSZz{\relax\ifmmode{\rm \widetilde{Z}^0}%
+           \else${\rm \widetilde{Z}^0}$\fi}%
+ \def\PSHz{\relax\ifmmode{\rm \widetilde{H}^0_j}%
+           \else${\rm \widetilde{H}^0_j}$\fi}%
+ \def\PSgxpm{\relax\ifmmode{\rm \widetilde{\chi}^{\pm_i}}%
+             \else${\rm \widetilde{\chi}^{\pm_i}}$\fi}%
+ \def\PSWpm{\relax\ifmmode{\rm \widetilde{W}^{\pm}}%
+            \else${\rm \widetilde{W}^{\pm}}$\fi}%
+ \def\PSHpm{\relax\ifmmode{\rm \widetilde{H}^{\pm_j}}%
+            \else${\rm \widetilde{H}^{\pm_j}}$\fi}%
+ \def\PSgn{\relax\ifmmode{\rm \widetilde{\nu}}%
+           \else${\rm \widetilde{\nu}}$\fi}%
+ \def\PSe{\relax\ifmmode{\widetilde{\rm e}}%
+          \else$\widetilde{\rm e}$\fi}%
+ \def\PSgm{\relax\ifmmode{\rm \widetilde{\mu}}%
+           \else${\rm \widetilde{\mu}}$\fi}%
+ \def\PSgt{\relax\ifmmode{\rm \widetilde{\tau}}%
+           \else${\rm \widetilde{\tau}}$\fi}%
+ \def\PSq{\relax\ifmmode{\rm \widetilde{q}}%
+          \else${\rm \widetilde{q}}$\fi}%
+ \def\PaSq{\relax\ifmmode{\rm \overline{\widetilde{q}}}%
+          \else${\rm \overline{\widetilde{q}}}$\fi}%
+ \def\PSg{\relax\ifmmode{\rm \widetilde{g}}%
+          \else${\rm \widetilde{g}}$\fi}%
+\else%  NFSS font specs %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \def\Pgg{\relax\ifmmode\mathrm{\gamma}%
+          \else$\mathrm{\gamma}$\fi}%
+ \def\PW{\relax\ifmmode\mathrm{W}%
+         \else$\mathrm{W }$\fi}%
+ \def\PWp{\relax\ifmmode\mathrm{W^+}%
+          \else$\mathrm{W^+}$\fi}%
+ \def\PWm{\relax\ifmmode\mathrm{W^-}%
+          \else$\mathrm{W^-}$\fi}%
+ \def\PZz{\relax\ifmmode\mathrm{Z^0}%
+          \else$\mathrm{Z^0}$\fi}%
+ \def\PHz{\relax\ifmmode\mathrm{H^0}%
+          \else$\mathrm{H^0}$\fi}%
+ \def\PHpm{\relax\ifmmode\mathrm{H^{\pm}}%
+           \else$\mathrm{H^{\pm}}$\fi}%
+ \def\PWR{\relax\ifmmode\mathrm{W_R}%
+          \else$\mathrm{W_R}$\fi}%
+ \def\PWpr{\relax\ifmmode\mathrm{W^{\prime}}%
+           \else$\mathrm{W^{\prime}}$\fi}%
+ \def\PZLR{\relax\ifmmode\mathrm{Z_{LR}}%
+           \else$\mathrm{Z_{LR}}$\fi}%
+ \def\PZgc{\relax\ifmmode\mathrm{Z_{\chi}}%
+           \else$\mathrm{Z_{\chi}}$\fi}%
+ \def\PZgy{\relax\ifmmode\mathrm{Z_{\psi}}%
+           \else$\mathrm{Z_{\psi}}$\fi}%
+ \def\PZge{\relax\ifmmode\mathrm{Z_{\eta}}%
+           \else$\mathrm{Z_{\eta}}$\fi}%
+ \def\PZi{\relax\ifmmode\mathrm{Z_1}%
+          \else$\mathrm{Z_1}$\fi}%
+ \def\PAz{\relax\ifmmode\mathrm{A^0}%
+          \else$\mathrm{A^0}$\fi}%
+ \def\Pgne{\relax\ifmmode\mathrm{\nu_{e}}%
+           \else$\mathrm{\nu_{e}}$\fi}%
+ \def\Pagne{\relax\ifmmode\mathrm{\overline{\nu}_{e}}%
+            \else$\mathrm{\overline{\nu}_{e}}$\fi}%
+ \def\Pgngm{\relax\ifmmode\mathrm{\nu_{\mu}}%
+            \else$\mathrm{\nu_{\mu}}$\fi}%
+ \def\Pagngm{\relax\ifmmode\mathrm{\overline{\nu}_{\mu}}%
+             \else$\mathrm{\overline{\nu}_{\mu}}$\fi}%
+ \def\Pgngt{\relax\ifmmode\mathrm{\nu_{\tau}}%
+            \else$\mathrm{\nu_{\tau}}$\fi}%
+ \def\Pagngt{\relax\ifmmode\mathrm{\overline{\nu}_{\tau}}%
+             \else$\mathrm{\overline{\nu}_{\tau}}$\fi}%
+ \def\Pe{\relax\ifmmode\mathrm{e}%
+         \else$\mathrm{e}$\fi}%
+ \def\Pep{\relax\ifmmode\mathrm{e^+}%
+          \else$\mathrm{e^+}$\fi}%
+ \def\Pem{\relax\ifmmode\mathrm{e^-}%
+          \else$\mathrm{e^-}$\fi}%
+ \def\Pepm{\relax\ifmmode\mathrm{e^\pm}%
+          \else$\mathrm{e^\pm}$\fi}%
+ \def\Pgm{\relax\ifmmode\mathrm{\mu}%
+          \else$\mathrm{\mu}$\fi}%
+ \def\Pgmm{\relax\ifmmode\mathrm{\mu^-}%
+           \else$\mathrm{\mu^-}$\fi}%
+ \def\Pgmp{\relax\ifmmode\mathrm{\mu^+}%
+           \else$\mathrm{\mu^+}$\fi}%
+ \def\Pgmpm{\relax\ifmmode\mathrm{\mu^\pm}%
+           \else$\mathrm{\mu^\pm}$\fi}%
+ \def\Pgt{\relax\ifmmode\mathrm{\tau}%
+          \else$\mathrm{\tau}$\fi}%
+ \def\PLpm{\relax\ifmmode\mathrm{L^{\pm}}%
+           \else$\mathrm{L^{\pm}}$\fi}%
+ \def\PLz{\relax\ifmmode\mathrm{L^0}%
+          \else$\mathrm{L^0}$\fi}%
+ \def\PEz{\relax\ifmmode\mathrm{E^0}%
+          \else$\mathrm{E^0}$\fi}%
+ \def\Pgp{\relax\ifmmode\mathrm{\pi}%
+          \else$\mathrm{\pi }$\fi}%
+ \def\Pgpm{\relax\ifmmode\mathrm{\pi^-}%
+           \else$\mathrm{\pi^-}$\fi}%
+ \def\Pgpp{\relax\ifmmode\mathrm{\pi^+}%
+           \else$\mathrm{\pi^+}$\fi}%
+ \def\Pgppm{\relax\ifmmode\mathrm{\pi^{\pm }}%
+            \else$\mathrm{\pi^{\pm }}$\fi}%
+ \def\Pgpz{\relax\ifmmode\mathrm{\pi^0}%
+           \else$\mathrm{\pi^0 }$\fi}%
+ \def\Pgh{\relax\ifmmode\mathrm{\eta}%
+          \else$\mathrm{\eta }$\fi}%
+ \def\Pgr{\relax\ifmmode\mathrm{\rho(770)}%
+          \else$\mathrm{\rho(770)}$\fi}%
+ \def\Pgo{\relax\ifmmode\mathrm{\omega(783)}%
+          \else$\mathrm{\omega(783)}$\fi}%
+ \def\Pghpr{\relax\ifmmode\mathrm{\eta^{\prime}(958)}%
+            \else$\mathrm{\eta^{\prime}(958)}$\fi}%
+ \def\Pfz{\relax\ifmmode\mathrm{f_0(975)}%
+          \else$\mathrm{f_0(975)}$\fi}%
+ \def\Paz{\relax\ifmmode\mathrm{a_0(980)}%
+          \else$\mathrm{a_0(980)}$\fi}%
+ \def\Pgf{\relax\ifmmode\mathrm{\phi(1020)}%
+          \else$\mathrm{\phi(1020)}$\fi}%
+ \def\Phia{\relax\ifmmode\mathrm{h_1(1170)}%
+           \else$\mathrm{h_1(1170)}$\fi}%
+ \def\Pbi{\relax\ifmmode\mathrm{b_1(1235)}%
+          \else$\mathrm{b_1(1235)}$\fi}%
+ \def\Pai{\relax\ifmmode\mathrm{a_1(1260)}%
+          \else$\mathrm{a_1(1260)}$\fi}%
+ \def\Pfii{\relax\ifmmode\mathrm{f_2(1270)}%
+           \else$\mathrm{f_2(1270)}$\fi}%
+ \def\Pfi{\relax\ifmmode\mathrm{f_1(1285)}%
+          \else$\mathrm{f_1(1285)}$\fi}%
+ \def\Pgha{\relax\ifmmode\mathrm{\eta(1295)}%
+           \else$\mathrm{\eta(1295)}$\fi}%
+ \def\Pgpa{\relax\ifmmode\mathrm{\pi(1300)}%
+           \else$\mathrm{\pi(1300)}$\fi}%
+ \def\Paii{\relax\ifmmode\mathrm{a_2(1320)}%
+           \else$\mathrm{a_2(1320)}$\fi}%
+ \def\Pgoa{\relax\ifmmode\mathrm{\omega(1390)}%
+           \else$\mathrm{\omega(1390)}$\fi}%
+ \def\Pfza{\relax\ifmmode\mathrm{f_0(1400)}%
+           \else$\mathrm{f_0(1400)}$\fi}%
+ \def\Pfia{\relax\ifmmode\mathrm{f_1 (1390)}%
+           \else$\mathrm{f_1 (1390)}$\fi}%
+ \def\Pghb{\relax\ifmmode\mathrm{\eta(1440)}%
+           \else$\mathrm{\eta(1440)}$\fi}%
+ \def\Pgra{\relax\ifmmode\mathrm{\rho(1450)}%
+           \else$\mathrm{\rho(1450)}$\fi}%
+ \def\Pfib{\relax\ifmmode\mathrm{f_1(1510)}%
+           \else$\mathrm{f_1(1510)}$\fi}%
+ \def\Pfiipr{\relax\ifmmode\mathrm{f^{\prime}_2(1525)}%
+             \else$\mathrm{f^{\prime}_2(1525)}$\fi}%
+ \def\Pfzb{\relax\ifmmode\mathrm{f_0(1590)}%
+           \else$\mathrm{f_0(1590)}$\fi}%
+ \def\Pgob{\relax\ifmmode\mathrm{\omega(1600)}%
+           \else$\mathrm{\omega(1600)}$\fi}%
+ \def\Pgoiii{\relax\ifmmode\mathrm{\omega_3(1670)}%
+             \else$\mathrm{\omega_3(1670)}$\fi}%
+ \def\Pgpii{\relax\ifmmode\mathrm{\pi_2(1670)}%
+            \else$\mathrm{\pi_2(1670)}$\fi}%
+ \def\Pgfa{\relax\ifmmode\mathrm{\phi(1680)}%
+           \else$\mathrm{\phi(1680)}$\fi}%
+ \def\Pgriii{\relax\ifmmode\mathrm{\rho_3(1690)}%
+             \else$\mathrm{\rho_3(1690)}$\fi}%
+ \def\Pgrb{\relax\ifmmode\mathrm{\rho(1700)}%
+           \else$\mathrm{\rho(1700)}$\fi}%
+ \def\Pfiia{\relax\ifmmode\mathrm{f_2(1720)}%
+            \else$\mathrm{f_2(1720)}$\fi}%
+ \def\Pgfiii{\relax\ifmmode\mathrm{\phi_3(1850)}%
+             \else$\mathrm{\phi_3(1850)}$\fi}%
+ \def\Pfiib{\relax\ifmmode\mathrm{f_2(2010)}%
+            \else$\mathrm{f_2(2010)}$\fi}%
+ \def\Pfiv{\relax\ifmmode\mathrm{f_4(2050)}%
+           \else$\mathrm{f_4(2050)}$\fi}%
+ \def\Pfiic{\relax\ifmmode\mathrm{f_2(2300)}%
+            \else$\mathrm{f_2(2300)}$\fi}%
+ \def\Pfiid{\relax\ifmmode\mathrm{f_2(2340)}%
+            \else$\mathrm{f_2(2340)}$\fi}%
+ \def\PK{\relax\ifmmode\mathrm{K}%
+         \else$\mathrm{K}$\fi}%
+ \def\PKpm{\relax\ifmmode\mathrm{K^{\pm}}%
+           \else$\mathrm{K^{\pm}}$\fi}%
+ \def\PKp{\relax\ifmmode\mathrm{K^+}%
+          \else$\mathrm{K^+}$\fi}%
+ \def\PKm{\relax\ifmmode\mathrm{K^-}%
+          \else$\mathrm{K^-}$\fi}%
+ \def\PKz{\relax\ifmmode\mathrm{K^0}%
+          \else$\mathrm{K^0}$\fi}%
+ \def\PaKz{\relax\ifmmode\mathrm{\overline{K}^0}%
+           \else$\mathrm{\overline{K}^0}$\fi}%
+ \def\PKgmiii{\relax\ifmmode\mathrm{K_{\mu 3}}%
+              \else$\mathrm{K_{\mu 3}}$\fi}%
+ \def\PKeiii{\relax\ifmmode\mathrm{K_{e3}}%
+             \else$\mathrm{K_{e3}}$\fi}%
+ \def\PKzS{\relax\ifmmode\mathrm{K^0_S}%
+           \else$\mathrm{K^0_S}$\fi}%
+ \def\PKzL{\relax\ifmmode\mathrm{K^0_L}%
+           \else$\mathrm{K^0_L}$\fi}%
+ \def\PKzgmiii{\relax\ifmmode\mathrm{K^0_{\mu 3}}%
+               \else$\mathrm{K^0_{\mu 3}}$\fi}%
+ \def\PKzeiii{\relax\ifmmode\mathrm{K^0_{e3}}%
+              \else$\mathrm{K^0_{e3}}$\fi}%
+ \def\PKst{\relax\ifmmode\mathrm{K^{\ast}(892)}%
+           \else$\mathrm{K^{\ast}(892)}$\fi}%
+ \def\PKi{\relax\ifmmode\mathrm{K_1(1270)}%
+          \else$\mathrm{K_1(1270)}$\fi}%
+ \def\PKsta{\relax\ifmmode\mathrm{K^{\ast}(1370)}%
+            \else$\mathrm{K^{\ast}(1370)}$\fi}%
+ \def\PKia{\relax\ifmmode\mathrm{K_1(1400)}%
+           \else$\mathrm{K_1(1400)}$\fi}%
+ \def\PKstz{\relax\ifmmode\mathrm{K^{\ast}_0(1430)}%
+            \else$\mathrm{K^{\ast}_0(1430)}$\fi}%
+ \def\PKstii{\relax\ifmmode\mathrm{K^{\ast}_2(1430)}%
+             \else$\mathrm{K^{\ast}_2(1430)}$\fi}%
+ \def\PKstb{\relax\ifmmode\mathrm{K^{\ast}(1680)}%
+            \else$\mathrm{K^{\ast}(1680)}$\fi}%
+ \def\PKii{\relax\ifmmode\mathrm{K_2(1770)}%
+           \else$\mathrm{K_2(1770)}$\fi}%
+ \def\PKstiii{\relax\ifmmode\mathrm{K^{\ast}_3(1780)}%
+              \else$\mathrm{K^{\ast}_3(1780)}$\fi}%
+ \def\PKstiv{\relax\ifmmode\mathrm{K^{\ast}_4(2045)}%
+             \else$\mathrm{K^{\ast}_4(2045)}$\fi}%
+ \def\PD{\relax\ifmmode\mathrm{D}%
+          \else$\mathrm{D}$\fi}%
+ \def\PaD{\relax\ifmmode\overline{\mathrm{D}}%
+          \else$\overline{\mathrm{D}}$\fi}%
+ \def\PDpm{\relax\ifmmode\mathrm{D^{\pm}}%
+           \else$\mathrm{D^{\pm}}$\fi}%
+ \def\PDm{\relax\ifmmode\mathrm{D^-}%
+          \else$\mathrm{D^-}$\fi}%
+ \def\PDp{\relax\ifmmode\mathrm{D^+}%
+          \else$\mathrm{D^+}$\fi}%
+ \def\PDz{\relax\ifmmode\mathrm{D^0}%
+          \else$\mathrm{D^0}$\fi}%
+ \def\PaDz{\relax\ifmmode\mathrm{\overline{D}^0}%
+           \else$\mathrm{\overline{D}^0}$\fi}%
+ \def\PDstpm{\relax\ifmmode{\mathrm{D}^{\ast}(2010)^{\pm}}%
+             \else$\mathrm{D}^{\ast}(2010)^{\pm}$\fi}%
+ \def\PDstz{\relax\ifmmode{\mathrm{D}^{\ast}(2010)^0}%
+            \else$\mathrm{D}^{\ast}(2010)^0$\fi}%
+ \def\PDiz{\relax\ifmmode{\mathrm{D}_{1}(2420)^0}%
+           \else$\mathrm{D}_{1}(2420)^0$\fi}%
+ \def\PDstiiz{\relax\ifmmode{\mathrm{D}^{\ast}_{2}(2460)^0}%
+              \else$\mathrm{D}^{\ast}_{2}(2460)^0$\fi}%
+ \def\PsDp{\relax\ifmmode\mathrm{D_{s}^+}%
+           \else$\mathrm{D_{s}^+}$\fi}%
+ \def\PsDm{\relax\ifmmode\mathrm{D_{s}^-}%
+           \else$\mathrm{D_{s}^-}$\fi}%
+ \def\PsDst{\relax\ifmmode\mathrm{D_{s}^{\ast}}%
+            \else$\mathrm{D_{s}^{\ast}}$\fi}%
+ \def\PsDipm{\relax\ifmmode\mathrm{D_{s1}(2536)^{\pm}}%
+           \else$\mathrm{D_{s1}(2536)^{\pm}}$\fi}%
+ \def\PB{\relax\ifmmode{\mathrm{B}}%
+          \else$\mathrm{B}$\fi}%
+ \def\PaB{\relax\ifmmode{\mathrm{\overline{B}}}%
+          \else$\mathrm{\overline{B}}$\fi}%
+ \def\PBp{\relax\ifmmode{\mathrm{B}^{+}}%
+           \else$\mathrm{B}^{+}$\fi}%
+ \def\PBm{\relax\ifmmode{\mathrm{B}^{-}}%
+           \else$\mathrm{B}^{-}$\fi}%
+ \def\PBpm{\relax\ifmmode{\mathrm{B}^{\pm}}%
+            \else$\mathrm{B}^{\pm}$\fi}%
+ \def\PBz{\relax\ifmmode{\mathrm{B}^0}%
+           \else$\mathrm{B}^0$\fi}%
+ \def\PaBz{\relax\ifmmode{\mathrm{\overline{B}}^0}%
+           \else$\mathrm{\overline{B}}^0$\fi}%
+ \def\Pcgh{\relax\ifmmode\mathrm{{\eta}_{c}(1S)}%
+           \else$\mathrm{{\eta}_{c}(1S)}$\fi}%
+ \def\PJgy{\relax\ifmmode\mathrm{J /\psi(1S)}%
+           \else$\mathrm{J /\psi(1S)}$\fi}%
+ \def\Pcgcz{\relax\ifmmode\mathrm{{\chi}_{c0}(1P)}%
+            \else$\mathrm{{\chi}_{c0}(1P)}$\fi}%
+ \def\Pcgci{\relax\ifmmode\mathrm{{\chi}_{c1}(1P)}%
+            \else$\mathrm{{\chi}_{c1}(1P)}$\fi}%
+ \def\Pcgcii{\relax\ifmmode\mathrm{{\chi}_{c2}(1P)}%
+             \else$\mathrm{{\chi}_{c2}(1P)}$\fi}%
+ \def\Pgy{\relax\ifmmode\mathrm{\psi(2S)}%
+          \else$\mathrm{\psi(2S)}$\fi}%
+ \def\Pgya{\relax\ifmmode\mathrm{\psi(3770)}%
+           \else$\mathrm{\psi(3770)}$\fi}%
+ \def\Pgyb{\relax\ifmmode\mathrm{\psi(4040)}%
+           \else$\mathrm{\psi(4040)}$\fi}%
+ \def\Pgyc{\relax\ifmmode\mathrm{\psi(4160)}%
+           \else$\mathrm{\psi(4160)}$\fi}%
+ \def\Pgyd{\relax\ifmmode\mathrm{\psi(4415)}%
+           \else$\mathrm{\psi(4415)}$\fi}%
+ \def\PgU{\relax\ifmmode\mathrm{\Upsilon(1S)}%
+          \else$\mathrm{\Upsilon(1S)}$\fi}%
+ \def\Pbgcz{\relax\ifmmode\mathrm{{\chi}_{b0}(1P)}%
+            \else$\mathrm{{\chi}_{b0}(1P)}$\fi}%
+ \def\Pbgci{\relax\ifmmode\mathrm{{\chi}_{b1}(1P)}%
+            \else$\mathrm{{\chi}_{b1}(1P)}$\fi}%
+ \def\Pbgcii{\relax\ifmmode\mathrm{{\chi}_{b2}(1P)}%
+             \else$\mathrm{{\chi}_{b2}(1P)}$\fi}%
+ \def\PgUa{\relax\ifmmode\mathrm{\Upsilon(2S)}%
+           \else$\mathrm{\Upsilon(2S)}$\fi}%
+ \def\Pbgcza{\relax\ifmmode\mathrm{{\chi}_{b0}(2P)}%
+             \else$\mathrm{{\chi}_{b0}(2P)}$\fi}%
+ \def\Pbgcia{\relax\ifmmode\mathrm{{\chi}_{b1}(2P)}%
+             \else$\mathrm{{\chi}_{b1}(2P)}$\fi}%
+ \def\Pbgciia{\relax\ifmmode\mathrm{{\chi}_{b2}(2P)}%
+              \else$\mathrm{{\chi}_{b2}(2P)}$\fi}%
+ \def\PgUb{\relax\ifmmode\mathrm{\Upsilon(3S)}%
+           \else$\mathrm{\Upsilon(3S)}$\fi}%
+ \def\PgUc{\relax\ifmmode\mathrm{\Upsilon(4S)}%
+           \else$\mathrm{\Upsilon(4S)}$\fi}%
+ \def\PgUd{\relax\ifmmode\mathrm{\Upsilon(10860)}%
+           \else$\mathrm{\Upsilon(10860)}$\fi}%
+ \def\PgUe{\relax\ifmmode\mathrm{\Upsilon(11020)}%
+           \else$\mathrm{\Upsilon(11020)}$\fi}%
+ \def\Pq{\relax\ifmmode\mathrm{q}%
+         \else$\mathrm{q}$\fi}%
+ \def\Paq{\relax\ifmmode\mathrm{\overline{q}}%
+         \else$\mathrm{\overline{q}}$\fi}%
+ \def\Pqd{\relax\ifmmode\mathrm{q_d}%
+         \else$\mathrm{q_d}$\fi}%
+ \def\Paqd{\relax\ifmmode\mathrm{\overline{q}_d}%
+         \else$\mathrm{\overline{q}_d}$\fi}%
+ \def\Pqu{\relax\ifmmode\mathrm{q_u}%
+         \else$\mathrm{q_u}$\fi}%
+ \def\Paqu{\relax\ifmmode\mathrm{\overline{q}_u}%
+         \else$\mathrm{\overline{q}_u}$\fi}%
+ \def\Pqs{\relax\ifmmode\mathrm{q_s}%
+         \else$\mathrm{q_s}$\fi}%
+ \def\Paqs{\relax\ifmmode\mathrm{\overline{q}_s}%
+         \else$\mathrm{\overline{q}_s}$\fi}%
+ \def\Pqc{\relax\ifmmode\mathrm{q_c}%
+         \else$\mathrm{q_c}$\fi}%
+ \def\Paqc{\relax\ifmmode\mathrm{\overline{q}_c}%
+         \else$\mathrm{\overline{q}_c}$\fi}%
+ \def\Pqb{\relax\ifmmode\mathrm{q_b}%
+         \else$\mathrm{q_b}$\fi}%
+ \def\Paqb{\relax\ifmmode\mathrm{\overline{q}_b}%
+         \else$\mathrm{\overline{q}_b}$\fi}%
+ \def\Pqt{\relax\ifmmode\mathrm{q_t}%
+         \else$\mathrm{q_t}$\fi}%
+ \def\Paqt{\relax\ifmmode\mathrm{\overline{q}_t}%
+         \else$\mathrm{\overline{q}_t}$\fi}%
+ \def\Pp{\relax\ifmmode\mathrm{p}%
+         \else$\mathrm{p}$\fi}%
+ \def\Pap{\relax\ifmmode\mathrm{\overline{p}}%
+         \else$\mathrm{\overline{p}}$\fi}%
+ \def\Pn{\relax\ifmmode\mathrm{n}%
+         \else$\mathrm{n}$\fi}%
+ \def\PNa{\relax\ifmmode\mathrm{N(1440)P_{11}}%
+          \else$\mathrm{N(1440)P_{11}}$\fi}%
+ \def\PNb{\relax\ifmmode\mathrm{N(1520)D_{13}}%
+          \else$\mathrm{N(1520)D_{13}}$\fi}%
+ \def\PNc{\relax\ifmmode\mathrm{N(1535)S_{11}}%
+          \else$\mathrm{N(1535)S_{11}}$\fi}%
+ \def\PNd{\relax\ifmmode\mathrm{N(1650)S_{11}}%
+          \else$\mathrm{N(1650)S_{11}}$\fi}%
+ \def\PNe{\relax\ifmmode\mathrm{N(1675)D_{15}}%
+          \else$\mathrm{N(1675)D_{15}}$\fi}%
+ \def\PNf{\relax\ifmmode\mathrm{N(1680)F_{15}}%
+          \else$\mathrm{N(1680)F_{15}}$\fi}%
+ \def\PNg{\relax\ifmmode\mathrm{N(1700)D_{13}}%
+          \else$\mathrm{N(1700)D_{13}}$\fi}%
+ \def\PNh{\relax\ifmmode\mathrm{N(1710)P_{11}}%
+          \else$\mathrm{N(1710)P_{11}}$\fi}%
+ \def\PNi{\relax\ifmmode\mathrm{N(1720)P_{13}}%
+          \else$\mathrm{N(1720)P_{13}}$\fi}%
+ \def\PNj{\relax\ifmmode\mathrm{N(2190)G_{17}}%
+          \else$\mathrm{N(2190)G_{17}}$\fi}%
+ \def\PNk{\relax\ifmmode\mathrm{N(2220)H_{19}}%
+          \else$\mathrm{N(2220)H_{19}}$\fi}%
+ \def\PNl{\relax\ifmmode\mathrm{N(2250)G_{19}}%
+          \else$\mathrm{N(2250)G_{19}}$\fi}%
+ \def\PNm{\relax\ifmmode\mathrm{N(2600)I_{1,11}}%
+          \else$\mathrm{N(2600)I_{1,11}}$\fi}%
+ \def\PgDa{\relax\ifmmode\mathrm{\Delta(1232)P_{33}}%
+           \else$\mathrm{\Delta(1232)P_{33}}$\fi}%
+ \def\PgDb{\relax\ifmmode\mathrm{\Delta(1620)S_{31}}%
+           \else$\mathrm{\Delta(1620)S_{31}}$\fi}%
+ \def\PgDc{\relax\ifmmode\mathrm{\Delta(1700)D_{33}}%
+           \else$\mathrm{\Delta(1700)D_{33}}$\fi}%
+ \def\PgDd{\relax\ifmmode\mathrm{\Delta(1900)S_{31}}%
+           \else$\mathrm{\Delta(1900)S_{31}}$\fi}%
+ \def\PgDe{\relax\ifmmode\mathrm{\Delta(1905)F_{35}}%
+           \else$\mathrm{\Delta(1905)F_{35}}$\fi}%
+ \def\PgDf{\relax\ifmmode\mathrm{\Delta(1910)P_{31}}%
+           \else$\mathrm{\Delta(1910)P_{31}}$\fi}%
+ \def\PgDh{\relax\ifmmode\mathrm{\Delta(1920)P_{33}}%
+           \else$\mathrm{\Delta(1920)P_{33}}$\fi}%
+ \def\PgDi{\relax\ifmmode\mathrm{\Delta(1930)D_{35}}%
+           \else$\mathrm{\Delta(1930)D_{35}}$\fi}%
+ \def\PgDj{\relax\ifmmode\mathrm{\Delta(1950)F_{37}}%
+           \else$\mathrm{\Delta(1950)F_{37}}$\fi}%
+ \def\PgDk{\relax\ifmmode\mathrm{\Delta(2420)H_{3,11}}%
+           \else$\mathrm{\Delta(2420)H_{3,11}}$\fi}%
+ \def\PgL{\relax\ifmmode\mathrm{\Lambda}%
+          \else$\mathrm{\Lambda}$\fi}%
+ \def\PagL{\relax\ifmmode\mathrm{\overline{\Lambda}}%
+          \else$\mathrm{\overline{\Lambda}}$\fi}%
+ \def\PgLa{\relax\ifmmode\mathrm{\Lambda(1405) S_{01}}%
+           \else$\mathrm{\Lambda(1405) S_{01}}$\fi}%
+ \def\PgLb{\relax\ifmmode\mathrm{\Lambda(1520) D_{03}}%
+           \else$\mathrm{\Lambda(1520) D_{03}}$\fi}%
+ \def\PgLc{\relax\ifmmode\mathrm{\Lambda(1600) P_{01}}%
+           \else$\mathrm{\Lambda(1600) P_{01}}$\fi}%
+ \def\PgLd{\relax\ifmmode\mathrm{\Lambda(1670) S_{01}}%
+           \else$\mathrm{\Lambda(1670) S_{01}}$\fi}%
+ \def\PgLe{\relax\ifmmode\mathrm{\Lambda(1690) D_{03}}%
+           \else$\mathrm{\Lambda(1690) D_{03}}$\fi}%
+ \def\PgLf{\relax\ifmmode\mathrm{\Lambda(1800) S_{01}}%
+           \else$\mathrm{\Lambda(1800) S_{01}}$\fi}%
+ \def\PgLg{\relax\ifmmode\mathrm{\Lambda(1810) P_{01}}%
+           \else$\mathrm{\Lambda(1810) P_{01}}$\fi}%
+ \def\PgLh{\relax\ifmmode\mathrm{\Lambda(1820) F_{05}}%
+           \else$\mathrm{\Lambda(1820) F_{05}}$\fi}%
+ \def\PgLi{\relax\ifmmode\mathrm{\Lambda(1830) D_{05}}%
+           \else$\mathrm{\Lambda(1830) D_{05}}$\fi}%
+ \def\PgLj{\relax\ifmmode\mathrm{\Lambda(1890) P_{03}}%
+           \else$\mathrm{\Lambda(1890) P_{03}}$\fi}%
+ \def\PgLk{\relax\ifmmode\mathrm{\Lambda(2100) G_{07}}%
+           \else$\mathrm{\Lambda(2100) G_{07}}$\fi}%
+ \def\PgLl{\relax\ifmmode\mathrm{\Lambda(2110) F_{05}}%
+           \else$\mathrm{\Lambda(2110) F_{05}}$\fi}%
+ \def\PgLm{\relax\ifmmode\mathrm{\Lambda(2350) H_{09}}%
+           \else$\mathrm{\Lambda(2350) H_{09}}$\fi}%
+ \def\PgSp{\relax\ifmmode\mathrm{\Sigma^+}%
+           \else$\mathrm{\Sigma^+}$\fi}%
+ \def\PagSp{\relax\ifmmode\mathrm{\overline{\Sigma}^+}%
+           \else$\mathrm{\overline{\Sigma}^+}$\fi}%
+ \def\PgSz{\relax\ifmmode\mathrm{\Sigm\^0}%
+           \else$\mathrm{\Sigma}^0$\fi}%
+ \def\PagSz{\relax\ifmmode\mathrm{\overline{\Sigma}^0}%
+           \else$\mathrm{\overline{\Sigma}^0}$\fi}%
+ \def\PgSm{\relax\ifmmode\mathrm{\Sigma^-}%
+           \else$\mathrm{\Sigma^-}$\fi}%
+ \def\PagSm{\relax\ifmmode\mathrm{\overline{\Sigma}^-}%
+           \else$\mathrm{\overline{\Sigma}^-}$\fi}%
+ \def\PgSa{\relax\ifmmode\mathrm{\Sigma(1385) P_{13}}%
+           \else$\mathrm{\Sigma(1385) P_{13}}$\fi}%
+ \def\PgSb{\relax\ifmmode\mathrm{\Sigma(1660) P_{11}}%
+           \else$\mathrm{\Sigma(1660) P_{11}}$\fi}%
+ \def\PgSc{\relax\ifmmode\mathrm{\Sigma(1670) D_{13}}%
+           \else$\mathrm{\Sigma(1670) D_{13}}$\fi}%
+ \def\PgSd{\relax\ifmmode\mathrm{\Sigma(1750) S_{11}}%
+           \else$\mathrm{\Sigma(1750) S_{11}}$\fi}%
+ \def\PgSe{\relax\ifmmode\mathrm{\Sigma(1775) D_{15}}%
+           \else$\mathrm{\Sigma(1775) D_{15}}$\fi}%
+ \def\PgSf{\relax\ifmmode\mathrm{\Sigma(1915) F_{15}}%
+           \else$\mathrm{\Sigma(1915) F_{15}}$\fi}%
+ \def\PgSg{\relax\ifmmode\mathrm{\Sigma(1940) D_{13}}%
+           \else$\mathrm{\Sigma(1940) D_{13}}$\fi}%
+ \def\PgSh{\relax\ifmmode\mathrm{\Sigma(2030) F_{17}}%
+           \else$\mathrm{\Sigma(2030) F_{17}}$\fi}%
+ \def\PgSi{\relax\ifmmode\mathrm{\Sigma(2050)}%
+           \else$\mathrm{\Sigma(2050)}$\fi}%
+ \def\PgXz{\relax\ifmmode\mathrm{\overline{\Xi}^0}%
+           \else$\mathrm{\overline{\Xi}^0}$\fi}%
+ \def\PagXz{\relax\ifmmode\mathrm{\Xi^0}%
+           \else$\mathrm{\Xi^0}$\fi}%
+ \def\PgXm{\relax\ifmmode\mathrm{\Xi^-}%
+           \else$\mathrm{\Xi^-}$\fi}%
+ \def\PagXp{\relax\ifmmode\mathrm{\overline{\Xi}^+}%
+           \else$\mathrm{\overline{\Xi}^+}$\fi}%
+ \def\PgXa{\relax\ifmmode\mathrm{\Xi(1530)P_{13}}%
+           \else$\mathrm{\Xi(1530)P_{13}}$\fi}%
+ \def\PgXb{\relax\ifmmode\mathrm{\Xi(1690)}%
+           \else$\mathrm{\Xi(1690)}$\fi}%
+ \def\PgXc{\relax\ifmmode\mathrm{\Xi(1820)D_{13}}%
+           \else$\mathrm{\Xi(1820)D_{13}}$\fi}%
+ \def\PgXd{\relax\ifmmode\mathrm{\Xi(1950)}%
+           \else$\mathrm{\Xi(1950)}$\fi}%
+ \def\PgXe{\relax\ifmmode\mathrm{\Xi(2030)}%
+           \else$\mathrm{\Xi(2030)}$\fi}%
+ \def\PgOm{\relax\ifmmode\mathrm{\Omega^-}%
+           \else$\mathrm{\Omega^-}$\fi}%
+ \def\PagOp{\relax\ifmmode\mathrm{\overline{\Omega}^+}%
+           \else$\mathrm{\overline{\Omega}^+}$\fi}%
+ \def\PgOma{\relax\ifmmode\mathrm{\Omega(2250)^-}%
+            \else$\mathrm{\Omega(2250)^-}$\fi}%
+ \def\PcgLp{\relax\ifmmode\mathrm{\Lambda_c^+}%
+            \else$\mathrm{\Lambda_c^+}$\fi}%
+ \def\PcgXz{\relax\ifmmode\mathrm{\Xi_c^0}%
+            \else$\mathrm{\Xi_c^0}$\fi}%
+ \def\PcgXp{\relax\ifmmode\mathrm{\Xi_c^+}%
+            \else$\mathrm{\Xi_c^+}$\fi}%
+ \def\PcgS{\relax\ifmmode\mathrm{\Sigma_c(2455)}%
+           \else$\mathrm{\Sigma_c(2455)}$\fi}%
+ \def\PSgg{\relax\ifmmode\mathrm{\widetilde{\gamma}}%
+           \else$\mathrm{\widetilde{\gamma}}$\fi}%
+ \def\PSgxz{\relax\ifmmode\mathrm{\widetilde{\chi}^0_i}%
+            \else$\mathrm{\widetilde{\chi}^0_i}$\fi}%
+ \def\PSZz{\relax\ifmmode\mathrm{\widetilde{Z}^0}%
+           \else$\mathrm{\widetilde{Z}^0}$\fi}%
+ \def\PSHz{\relax\ifmmode\mathrm{\widetilde{H}^0_j}%
+           \else$\mathrm{\widetilde{H}^0_j}$\fi}%
+ \def\PSgxpm{\relax\ifmmode\mathrm{\widetilde{\chi}^{\pm_i}}%
+             \else$\mathrm{\widetilde{\chi}^{\pm_i}}$\fi}%
+ \def\PSWpm{\relax\ifmmode\mathrm{\widetilde{W}^{\pm}}%
+            \else$\mathrm{\widetilde{W}^{\pm}}$\fi}%
+ \def\PSHpm{\relax\ifmmode\mathrm{\widetilde{H}^{\pm_j}}%
+            \else$\mathrm{\widetilde{H}^{\pm_j}}$\fi}%
+ \def\PSgn{\relax\ifmmode\mathrm{\widetilde{\nu}}%
+           \else$\mathrm{\widetilde{\nu}}$\fi}%
+ \def\PSe{\relax\ifmmode\mathrm{\widetilde{e}}%
+          \else$\mathrm{\widetilde{e}}$\fi}%
+ \def\PSgm{\relax\ifmmode\mathrm{\widetilde{\mu}}%
+           \else$\mathrm{\widetilde{\mu}}$\fi}%
+ \def\PSgt{\relax\ifmmode\mathrm{\widetilde{\tau}}%
+           \else$\mathrm{\widetilde{\tau}}$\fi}%
+ \def\PSq{\relax\ifmmode\mathrm{\widetilde{q}}%
+          \else$\mathrm{\widetilde{q}}$\fi}%
+ \def\PaSq{\relax\ifmmode\mathrm{\overline{\widetilde{q}}}%
+          \else$\mathrm{\overline{\widetilde{q}}}$\fi}%
+ \def\PSg{\relax\ifmmode\mathrm{\widetilde{g}}%
+          \else$\mathrm{\widetilde{g}}$\fi}%
+\fi

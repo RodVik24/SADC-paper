@@ -1,23 +1,272 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper, twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\pdfminorversion=6
-\begin{document}
-\begin{center}
-{\bfseries \Large A compact size, 64-channel, 80 MSPS, 14-bit dynamic range ADC module for the PANDA Electromagnetic Calorimeter
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
 }
-\end{center}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}}
+\sisetup{per-mode=symbol}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage[switch,columnwise]{lineno}
+\usepackage[nottoc]{tocbibind}
+\pdfminorversion=6
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\renewcommand{\headrulewidth}{1pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\renewcommand{\footrulewidth}{1pt} % no line in header area
+\fancyfoot[RE,RO]{\thepage}           % page number in "outer" position of footer line
+\newcommand{\Reffig}[1]{Fig.~\ref{#1}}
+\newcommand{\Reftbl}[1]{Table.~\ref{#1}}
+
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{unsrt}
+
+\input{sty/panda_symbols}
+\input{sty/panda_detector}
+
+\title{A compact size, 64-channel, 80\,MS/s, 14-bit dynamic range ADC module for the PANDA Electromagnetic Calorimeter}
+
+
+\begin{document}
+\onecolumn
+\date{}
+\maketitle
+\thispagestyle{empty}
+\newpage
+\input{abstract/abstract.tex}
+\thispagestyle{empty}
+\twocolumn
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\runningpagewiselinenumbers
+\modulolinenumbers[5]
+
+\linenumbers
 \section{Introduction}
+The Electromagnetic Calorimeter (EMC) of the Anti-Proton Annihilation at Darmstadt (PANDA) experiment at the Facility for Antiproton and Ion Research (FAIR) consists of over 15000 lead tungstate (PbWO4) crystals and is designed for detection and parametrization of particles with kinetic energies up to \SI{12}{\giga\electronvolt}. For accurate reconstruction of events in the PANDA detector, a correct merging of energy spills as low as \SI{3}{\mega\electronvolt} in the calorimeter crystals is desired. This requires front-end electronics with 14-bit dynamic range.
+Since the experiment will essentially be trigger-less, the event-building and data selection will be performed on-line.  All detector signals will need a continuous high-speed sampling and autonomous pulse detection and parametrization systems.  Due to a close to \SI{4}{\pi} coverage of the solid angle by the active detector material, the cross-section of the opening holes in the detector’s construction does not allow for routing of all individual signal cables outside of the detector. Therefore it was decided to locate the ADCs in a confined space within the detector, where the devices will perform the digitization and extraction of important features of signals, like pulse amplitudes, integrals and times to be sent to the Data Acquisition System (DAQ) over optical links. The ADC system will be exposed to ionizing radiation and a magnetic field of a flux density reaching \SI{2}{\tesla}. 
+
+
+\begin{figure} [htb]
+\begin{subfigure}[b]{0.33\linewidth}
+\includegraphics[width=\linewidth]
+{fig/virtex5.pdf}
+\vspace{1em}
+\caption{}
+\end{subfigure}
+\begin{subfigure}[b]{0.3\linewidth}
+\includegraphics[width=\linewidth]
+{fig/virtex6.pdf}
+\caption{}
+\end{subfigure}
+\begin{subfigure}[b]{0.33\linewidth}
+\includegraphics[width=\linewidth]
+{fig/kintex7.pdf}
+\caption{}
+\end{subfigure}
+\caption{ADC portfolio. \\
+(a) 16-channel, 125 MSPS, Virtex-5 based\\
+(b) 64-channel, 80 MSPS, Virtex-6 based\\
+(c) 64-channel, 80 MSPS, Kintex-7 based}
+\label{fig:sadc:board}
+\end{figure}
+The limited space provided in the detector for the ADC system requires high channel density and liquid cooling of the devices. 
+In order to define the optimal design for the task, a number of different 14-bit sampling ADC modules were constructed, see \Reffig{fig:sadc:board}. The ADC portfolio includes a 16-channel, 125\,MS/s table-top module, a 64-channel, 80\,MS/s dual-range high-end module and a 64-channel, 80\,MS/s economy module \cite{kavatsyuk}. 
 \section{Module construction}
+The 64-channel ADCs are equipped with symmetrizing shapers/amplifiers allowing for user defined CR-(RC)$^3$ filter configurations. In configurations with by-passed CR-(RC)$^3$ filter, the input analog stage features over \SI{100}{\mega\hertz} bandwidth. Obtaining a 14-bit dynamic range required by the PANDA experiment was found to be feasible through using a dual-range ADC structure. By fitting SMD jumpers, a 32-channel dual range configuration can be obtained.
+Amplified signals are processed by a set of 8-channel 14-bit, 80\,MS/s analog-to-digital converter circuits, see \Reffig{fig:sadc:structure} 
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth, trim={120 0 120 0}, clip]{fig/hardware.pdf}
+\caption{Hardware structure of the \panda  Sampling Analogue-to-Digital Converter board (SADC).}
+\label{fig:sadc:structure}
+\end{figure}
+
+Digitized samples of 64 analog signals are sent to 2 FPGAs using 128 LVDS links running at 560\,Mbit/s each. 
+The FPGA firmware performs signal filtration, and extracts important signal parameters, such as time of arrival, amplitude and integral. 
+The data assembled in output registers are pushed to the optical links via multi-gigabit transceivers (GTX) running at 2\,Gbit/s. Depending on data rate and firmware configuration, it is possible to use either both optical links, which are independently controlled by 2 FPGAs or use only one optical link and inter-FPGA serial or parallel data connections.
+The ADC module is compliant with the SODA System, for which the reference clock is distributed via a DAQ, using the down-link part of the ADCs optical transceiver. It allows for obtaining defined latencies with a reference time accuracy of \SI{50}{\pico\second} \cite{konorov}. The received reference clock signal is routed out from the FPGAs and processed by a 14-output PLL/jitter cleaner circuit, providing a set of stable clocks for all digitizers as well as for all GTX inside FPGAs. 
+A dual FPGA structure and a hardwired arbitration circuit provide routing of the JTAG configuration signals to the FPGAs and control of the reference clock source. This allows for resolving potentially catastrophic situations, when a content of a configuration memory is damaged by radiation in such a way that the loaded configuration affects the communication chain, thus locking the possibility for a remote repair of the faulty content.
+The dimension of 64-channel modules amounts to \SI{100 x 150}{\squared\milli\metre}, including the area designated for DC/DC converters. Despite a high channel density, no measurable crosstalk has been observed. The proximity of specially designed DC/DC converters also doesn’t give any measurable rise to the signal noise. The power consumption amounts to \SI{22}{\watt} for the  Kintex-7 version and \SI{27}{\watt} for the Virtex-6 version. This requires efficient cooling, which in the PANDA will be accomplished by liquid-cooled aluminum encapsulations.
 \section{ADC test and measurement setup}
+The test setup was based on a firmware developed for the Crystal Barrel experiment at the Bonn University. The firmware allows self-triggering with variable threshold, as well as external trigger and network-based trigger. Several algorithms for pulse integral determination, peak-sensing and digital constant fraction discrimination allow to characterize the waveform such that it's properties can be determined efficiently with regards to memory and bandwidth. Additionally, the transmission of full samples with a length of \SI{12.8}{\micro\second} is possible for any channel. With the versatile AXI interface, the data-streams are handed over to a 1GB/s UDP/IP core, based on an open source code (opencores.org, BSD). The usage of Ethernet with UDP/IP has allowed for a great simplification of lab setups, introducing the possibility to directly connect the SADC to a computer. 
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{fig/ADCsetup.pdf}
+\caption{ADC and detector performance test setup.}
+\label{fig:sadc:setup}
+\end{figure}
+Data taking as well as configuration can be done within one simple framework, see \Reffig{fig:sadc:setup}. The setup was used for evaluation of the detector sensitivity and noise, as well as for performance analysis of the ADC module.
 \section{Performance of the ADC analog stage}
-\section{Analog waveform sampling}
+Given the light yield of the PbWO4 crystals, the quantum efficiency, the gain of the photo-sensors, as well as the pre-amplifier gain, the signals amplitude at the ADC inputs corresponding to energy depositions of \SI{1}{\mega\electronvolt} to \SI{12}{\giga\electronvolt} will range from \SI{160}{\micro\volt} to \SI{2.2}{\volt} respectively. To achieve a high resolution of the ADC, every detector signal is processed by a high-gain and a low-gain channel, see \Reftbl{tab:ADCanpref}.
+\begin{table}[htb]
+\caption{\label{tab:ADCanpref}ADC analog performance.}
+\begin{center}
+	\begin{tabular}{p{2cm}cc}
+	Parameter&Low Gain&High Gain \\ \hline
+	Gain&0.5&7.2 \\ \hline
+	\multirow{2}{2cm}{Input amplitude} & $<$ \SI{ \pm2.2}{\volt} & $<$ \SI{ \pm0.14}{\volt} \\
+	& (0 -- \SI{12}{\giga\electronvolt}) & (0 -- \SI{1}{\giga\electronvolt})\\ \hline
+	\multirow{2}{2cm}{Noise}&\SI{1.3}{\milli\volt}&\SI{0.08}{\milli\volt} \\
+	&(\SI{8}{\mega\electronvolt}) &(\SI{0.5}{\mega\electronvolt}) \\ \hline
+	Bandwidth&$>$ \SI{100}{\mega\hertz}&$>$ \SI{20}{\mega\hertz}\\ \hline
+	Linearity&\multicolumn{2}{c}{ 0.6~\%}\\ \hline
+	Amplitude Resolution&\multicolumn{2}{c}{ $<$ 0.1~\%} \\ \hline
+	Charge Resolution&\multicolumn{2}{c}{ $<$ 0.1~\%} \\ \hline
+	\end{tabular}
+\end{center}
+\end{table}
+The noise, linearity, amplitude and charge resolution figures were measured at Ruhr-University Bochum with the help of a detector emulator device (CAEN DT5800), which was configured to deliver pulses comparable to the preamplifier signals in the experiment. The ADC was set to a self-triggered mode of operation. The baseline was calculated using the moving average of 200 samples preceding the signal.
+The RMS noise of the ADC in high-gain channels amounts to \SI{0.08}{\milli\volt} (\SI{0.5}{\mega\electronvolt}), while the baseline amplitude distribution has a white noise character and does not show signs of the interference from the digital part of the device, see \Reffig{fig:sadc:noise}.
+\begin{figure}[htb]
+\includegraphics[width=\linewidth]{fig/ADCnoise.pdf}
+\caption{The ADC noise with optional high-pass filters. With 58 bins per 1 MeV in the high-gain channel, the RMS noise amounts to 80µV.}
+\label{fig:sadc:noise}
+\end{figure}
+\section{Performance of the ADC sampling}
+\begin{itemize}
+\item Example of a digitized waveform with a light pulser \Reffig{fig:sadc:example}.
+\item Example of a digitized waveform with cosmics.
+\item Example of a digitized waveform with a neutron/proton/gamma beam.
+\item Time/Energy resolution for each example.
+\item Different waveforms for several energy values  and Low/High gain could be shown.
+\end{itemize}
+\begin{figure*} [htb]
+\begin{subfigure}[b]{0.5\linewidth}
+\includegraphics[width=\linewidth]{fig/Lowgain814.pdf}
+\caption{Lightpulser, Lowgain 2.2V (12 GeV).}
+\label{fig:sadc:2.2V_Low}
+\end{subfigure}
+\begin{subfigure}[b]{0.5\linewidth}
+\includegraphics[width=\linewidth]{fig/Highgain815.pdf}
+\caption{Lightpulser,Highgain 48mV (262 MeV).}
+\label{fig:sadc:48mV_High}
+\end{subfigure}
+\\
+\begin{subfigure}[b]{0.5\linewidth}
+\includegraphics[width=\linewidth]{fig/Lowgain815.pdf}
+\caption{Lightpulser, Lowgain 48mV (262 MeV).}
+\label{fig:sadc:48mV_Low}
+\end{subfigure}
+\caption{Waveforms example.}
+\label{fig:sadc:example}
+\end{figure*}
 \section{Analog and digital signal filters}
+This part of the design is under evaluation with the goal to detect energy spills as low as \SI{3}{\mega\electronvolt} as well as resolve and parametrize signal pileups occurring with down to \SI{200}{\nano\second} time separation with the best achievable time and energy resolution.
+Detecting the weakest signals requires signal filtration, while the optimal filter parameters depend on the expected particle rate in the detector. In case of low rates, adequately longer signal shaping constants result in better signal to noise ratio, hence in better energy resolution and wider dynamic range, see \Reffig{fig:sadc:filter}. 
+\begin{figure}[htb]
+\includegraphics[width=\linewidth, trim={3 3 0 0}, clip]{fig/ADCfilter.pdf}
+\caption{A \SI{1}{\milli\volt} analog signal (corresponding to \SI{5}{\mega\electronvolt} energy deposition). }
+\label{fig:sadc:filter}
+\end{figure}
+Signal filtration methods for higher rates as well as multiple pulse detection and parametrization using Moving Window Deconvolution (MWD), Moving Averaging (MA) and Constant Fraction Timing (CFT) were developed and tested at KVI-CART, Groningen, The Netherlands \cite{Tambave_2012}. 
+The ADCs were successfully tested with a readout system running the SODANET protocol. 
+\section{Feature Extraction Firmware on the SADC module}
+The feature extraction algorithm was designed for implementation on the developed SADC module, which is required to process signals at high interaction rates. The signal filters mentioned in a previous section  are used for efficient signal processing during the feature extraction procedure. 
+
+Implementation of the feature extraction algorithm on the FPGA is done in VHDL. The signal-processing logic is shown as a block diagram in \Reffig{fig:fea_fwendcap}. 
+\begin{figure}[h]
+    \includegraphics[width=0.49\textwidth ,trim={0 0 0 0}, clip]{fig/Scheme_FE.pdf}
+    \caption[Scheme of the Feature Extraction Algorithm implemented on ADC]{
+    The block diagram of the feature extraction algorithm implemented on the FPGA of the sampling ADC.}
+    \label{fig:fea_fwendcap}
+\end{figure}
+The digitized waveforms from high and low gain ADC channels, i.\,e.\@ pulses, are simultaneously processed by the feature extraction algorithm. \\At the beginning, the high (low) gain signal is sent to the Infinite Impulse Response (IIR) filter, which is similar to the MA filter. They are used for signal smoothing and noise reduction leading to precise pulse detection at lower thresholds. There is possible to select by the slow control system which of them will be used for the feature extraction.  branch with the MWD II functional block is used to reduce the pulse length even more in comparison to MWD I. Thus, these two blocks reduce the processing time of the waveform, which decreases the probability of signal pile-up at high rates. 
+The next component, Pulse-Pileup check, performs several functions. Firstly, it discards the digitized waveforms which do not have enough samples
+The following Feature-Extraction module (FE) has the same structure for both. Discrete-in-time samples of the digitized waveform are passed through the baseline functional block (Baseline), which restores the correct baseline for precise energy determination. The output of the baseline block is connected to three readout functional blocks, namely to Trigger (Tr), CFT and MA filter.
+The MWD functional block provides the time-stamp information. The MA functional block is used for smoothing and noise reduction leading to precise pulse detection at lower thresholds. If the sample-value is higher than the set threshold in the Tr block, this block sends a command to process the information given by the CFT and MA blocks after each sample from now for the Time-Energy determination in the Time and Energy (E) functional blocks. The Tr block performs not only the detection of the pulse but also its interruption. When the sample-value becomes lower than 1/4 of the threshold value, this block sends a command to stop the time-energy determination. As a result, the time and energy values, extracted from the pulse, are propagated to the last functional block: Pileup Identification and Recovery (I/A). This block is used to estimate the integral/amplitude ratio. If this ratio is bigger than a value set by the user, the output is taken from the parallel branch with a shorter 
+waveform after the MWD block. Received time-energy data are sent to the Data Concentrator (DC).
 \section{Test of the ADC module in a test beam environment}
+The ADC was used in a detector setup for testing response of EMC Forward End-Cap PbWO4 crystals to photons with energies from \SIrange{10}{62}{\mega\electronvolt}. In the experiment performed at Max Lab III in Lund, 2014, a 3 x 3 matrix of crystals was equipped with Hamamatsu R11375 Vacuum Photo-Tetrodes (VPTT) and SP883d signal preamplifiers from the University of Basel \cite{Keshelashvili_2015}. The signals were processed by the Virtex-6 ADC version equipped with 300ns input shaping filter. The waveform data were transferred to a PC via a VME-based Data Concentrator module (ATLB) \cite{Marciniewski}.
+After off-line energy reconstruction and applying \SI{1.5}{\mega\electronvolt} thresholds, the relative energy resolution obtained for photon energies of \SIlist{11; 26; 38; 62}{\mega\electronvolt} was found to be fulfilling the Technical Design Report requirements of the PANDA EMC with a safety margin, \Reffig{fig:sadc:resolution}.
+
+\begin{figure}[htb]
+\includegraphics[width=0.49\textwidth ,trim={1 0 0 0}, clip]{fig/Figure3.png}
+\caption{\label{fig:sadc:resolution}Calorimeter energy resolution for low energy photons.}
+\end{figure}
 \section{Neutron irradiation of the ADC}
+In order to test the endurance of the ADC in a radiation environment, the Kintex-7 version of the device was irradiated with a neutron beam at The Svedberg Laboratory (TSL), Uppsala University in June 2016. The purpose of this experiment was to find the cross section of the device for the SEU-induced bit errors and estimate the Mean Time Between Failures (MTBF) of the device when placed inside of the operating PANDA detector.
+The neutron beam was produced by directing a \SI{180}{\mega\electronvolt} proton beam into a full-stop tungsten target.
+The ADC was first placed at the Standard User Position (SUP), perpendicular to the beam which had a diameter of \SI{130}{\milli\metre}. The neutron flux $\Phi_n$  ($>$\SI{10}{\mega\electronvolt}) at this position amounted to $5\times10^5$ -- $10^6 s^{-1}cm^{-2}$  with the energy spectrum as shown in \Reffig{fig:sadc:irradiation}.
+
+\begin{figure}[htb]
+\includegraphics[width=0.49\textwidth, trim={0 2 3 0}, clip]{fig/Figure4.png}
+\caption{\label{fig:sadc:irradiation}Neutron energy spectrum at the TSL (blue) and the anticipated in the \panda (red).}
+\end{figure}
+During the experiment, the Xilinx Soft Error Mitigation (SEM) Controller was placed in the FPGA \cite{xilinx}. The SEM Controller has the ability to detect and correct different types of SEUs and its activity was monitored via a serial link.
+In this experiment, the SEM was automatically correcting Single-Bit Upsets (SBU) as well as Multiple-Bit Upsets MBU, spread over multiple frames in the FPGA memory (inter-frame). MBU located in the same frame (intra-frame) are not automatically correctable by SEM and require reconfiguration of the affected FPGA, which causes an FPGA dead time of the order of \SI{200}{\milli\second}.
+\begin{figure}[htb]
+\includegraphics[width=0.49\textwidth, trim={0 0 0 0}, clip]{fig/ADCcssneutron.pdf}
+\caption{\label{fig:sadc:cssneutron} SEU cross sections of the ADC (FPGA) for neutrons.}
+\end{figure}
+The occurrence of the SBU amounted to 69~\%, inter-frame MBU -- 26~\% and intra-frame MBU -- 5~\%.
+After dividing the registered SEU number by beam time and normalizing the result to the neutron flux we have obtained:
+\begin{equation} \label{eq1}
+\begin{split}
+\sigma_{SEU}&=\frac{N_{SEU}}{T_{MEAS}\cdot \Phi_n\cdot N_{BITS}}=\\
+&=7.42\cdot 10^{-15} cm^2\cdot bit ^{-1}
+\end{split}
+\end{equation}
+per FPGA, which is in agreement with the results achieved by a group of M. J. Wirthlin \cite{Wirthlin_2014}, see \Reffig{fig:sadc:cssneutron}. 
+In order to find the MTBF in PANDA, a simulation of the neutron flux in the EMC was made using a PandaRoot simulation package \cite{Messchendorp:2010zz}. Given the beam momentum P$_{pbar}$ = \SI{15}{\giga\electronvolt\per\clight}
+ and a luminosity of $L$= $2\cdot10^{32}cm^{-2}s^{-1}$, the scaled neutron flux at the position of the digitizers in PANDA amounts to 
+$\Phi_n$ = 150 $s^{-1}cm^{-2}$
 \section{Proton irradiation of the ADC}
+In November 2016 the ADC board was irradiated with a proton beam delivered by the AGOR cyclotron at KVI, Groningen. The beam was collimated with a \SI{120}{\milli\meter} collimator, illuminating a top half of the digitizer board, including one of the FPGAs and SFP optical transceivers. 
+Irradiations of an older prototype of the ADC, based on the Virtex-6 FPGA, have been performed at KVI-CART in the past \cite{kava2}. The new measurements were done at proton energies of \SIlist{80; 100; 184}{\mega\electronvolt}, allowing for studies of the energy-dependence of the SEU cross section. 
+
+\begin{figure}[htb]
+\includegraphics[width=\linewidth, trim={0 0 0 0}, clip]{fig/ADCcssproton.pdf}
+\caption{\label{fig:sadc:cssproton}SEU cross sections of the ADC (FPGA) for protons.}
+\end{figure}
+By using the same analysis procedure as for the neutron-irradiation data, the obtained cross-sections for a Xilinx XC7K-160T FPGA are summarized in \Reftbl{tab:Crss}. These results agree with previously reported measurements by Hiemstra et al., Leslea et al. and Wirtlin et al., see \Reffig{fig:sadc:cssproton} \cite{tale},\cite{kintex}. 
+\begin{table}[htb]
+\caption{\label{tab:Crss}Cross sections for proton-induced SEUs at different beam energies for XC7K-160T.}
+\begin{center}
+	\begin{tabular}{c|c}
+	$E_{pbeam}$ [MeV]&$\sigma_{SEU}$ [$cm^2\cdot bit ^{-1}$] \\ \hline
+	80 & $7.94\cdot10^{-15}$ \\ \hline
+	100 & $6.67\cdot10^{-15}$ \\ \hline
+	184 & $5.67\cdot10^{-15}$ \\ \hline
+	\end{tabular}
+\end{center}
+\end{table}
+The total number of impact protons on the device during the proton irradiation session amounted to $1.12\cdot10^{10}cm^{-2}$.
+The flux of high-energy charged particles in the PANDA experiment at the location of the ADC modules was also simulated with the PandaRoot framework \cite{kava2} and amounts to 
+$\Phi_p$ = 60 $s^{-1}cm^{-2}$.
+The device was thus exposed to a dose equivalent of 6.5 years of detector operation at high luminosity. After the test, the device is still fully functional and no measurable degradation of performance was observed. 
 \section{ADC recovery after irradiation}
+Recovery of the SADC board from the radiation damage requires time. 
+\begin{figure}[htb]
+\includegraphics[width=\linewidth, trim={0 0 0 0}, clip]{fig/PowerReboot.png}
+\caption{\label{fig:sadc:pwr_rbt}Reboot time of the power supply at the SADC: green line corresponds to the power supply clock, yellow and azure lines show the clock signal of the FPGA-1 and the FPGA-2 correspondingly. }
+\end{figure}Thus, the data, expected to arrive from a certain ADC module, will be lost. Hence, it is important to know how many data were lost for proper data correlation later. Therefore, another irradiation experiment was done at KVI in October 2018 to determine the recovery time after the SEU case.
+\begin{figure}[htb]
+\includegraphics[width=\linewidth, trim={0 0 0 0}, clip]{fig/FPGAReboot.png}
+\caption{\label{fig:sadc:fpga_rbt}Reboot time of the FPGA at the SADC.}
+\end{figure}
+
+Depending on the place where the SEU has occurred, the SADC board can be fully or partially reset. In case if a power supply of the SADC module suffered from irradiation, the full reboot of the board is required. The mean time of the reboot when the main SODA clock is available for the power supply is \SI{180}{\milli\second} as shown in \Reffig{fig:sadc:pwr_rbt}. Another possible scenario is damaging the firmware configuration, which was loaded to the FPGA memory. This problem can be resolved with re-configuring the FPGAs. Time, expected for this procedure, you can see in \Reffig{fig:sadc:fpga_rbt}. For one FPGA it is around \SI{150}{\milli\second} in case of its reboot. Providing the clock does not mean the immediate data production. There is latency existing between data production and the reboot time of the FPGA, what can be explained by fetching the configuration settings from the main DAQ system to the DC and further to the SADC board. This latency is shown in \Reffig{fig:sadc:data_rd}. On average, it is \SI{15}{\milli\second}.
+\begin{figure}[htb]
+\includegraphics[width=\linewidth, trim={0 0 0 0}, clip]{fig/DataProdRd.png}
+\caption{\label{fig:sadc:data_rd}Latency of the SADC before data production.}
+\end{figure}
+Thus, within the \SI{200}{\milli\second} the presented SADC board can back into full operation mode in both cases of the SEU occurrence, which means continuing data collection.
 \section{Conclusion}
+A number of prototypes of the signal digitizer for EMC for the PANDA experiment were constructed and tested. The device was found to be fulfilling the requirements concerning performance and robustness described in the Technical Design Report. The device is ready for moving to a volume production phase.
+
+\bibliography{lit}
+
 \end{document}

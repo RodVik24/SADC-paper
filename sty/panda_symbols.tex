@@ -1,0 +1,167 @@
+% def_panda_sym.tex
+%
+\input{./sty/pennames.sty}
+\input{./sty/myunits.sty}
+\input{./sty/mymath.sty}
+%
+\RequirePackage{xspace}
+% Upright mu for micro
+\DeclareFontFamily{U}{euc}{}% I chose euc because the chart is called Euler cursive
+\DeclareFontShape{U}{euc}{m}{n}{<-6>eurm5<6-8>eurm7<8->eurm10}{}%
+\DeclareSymbolFont{AMSc}{U}{euc}{m}{n} % I chose AMSc because AMSa and AMSb are defined in the amsfonts-package
+\DeclareMathSymbol{\umu}{\mathord}{AMSc}{"16}
+%
+\def\degrees{\ensuremath{^\circ}\xspace}%
+\def\percent{$\,$\%\xspace}%
+\def\prm{\ensuremath{^\prime}}%
+\def\etc{{\em etc.}\xspace}%
+%
+\def\tm{\texttrademark}
+\def\tmr{\ensuremath{^{\textregistered}}}
+%
+\def\ppbar{\ensuremath{\mbox{p}\overline{\mbox{p}}}\xspace}%
+\def\pbarp{\ensuremath{\overline{\mbox{p}}\mbox{p}}\xspace}%
+\def\pbarA{\ensuremath{\overline{\mbox{p}}\mbox{A}}\xspace}%
+\def\pbarN{\ensuremath{\overline{\mbox{p}}\mbox{N}}\xspace}%
+\def\pbard{\ensuremath{\overline{\mbox{p}}\mbox{d}}\xspace}%
+\def\pbar{\ensuremath{\overline{\mbox{p}}}\xspace}%
+\def\nbar{\ensuremath{\overline{\mbox{n}}}\xspace}%
+\def\pbarn{\ensuremath{\overline{\mbox{p}}\mbox{n}}\xspace}%
+\def\nbarn{\ensuremath{\overline{\mbox{n}}\mbox{n}}\xspace}%
+%
+\def\qbar{\ensuremath{\overline{q}}\xspace}%
+\def\cbar{\ensuremath{\overline{c}}\xspace}%
+\def\ccbar{\ensuremath{c\overline{c}}\xspace}%
+\def\ccbarg{\ensuremath{c\overline{c}g}\xspace}%
+\def\cqbar{\ensuremath{c\overline{q}}\xspace}%
+\def\cbarq{\ensuremath{\overline{c}q}\xspace}%
+\def\uubar{\ensuremath{u\overline{u}}\xspace}%
+\def\ddbar{\ensuremath{d\overline{d}}\xspace}%
+\def\ssbar{\ensuremath{s\overline{s}}\xspace}%
+\def\bbbar{\ensuremath{b\overline{b}}\xspace}%
+\def\bqbar{\ensuremath{b\overline{q}}\xspace}%
+\def\bbarq{\ensuremath{\overline{b}q}\xspace}%
+\def\qqbar{\ensuremath{q\overline{q}}\xspace}%
+\def\qqbarg{\ensuremath{q\overline{q}g}\xspace}%
+\def\QQbar{\ensuremath{Q\overline{Q}}\xspace}%
+%
+\def\ee{\ensuremath{e^+e^-}\xspace}%
+\def\mumu{\ensuremath{\mu^+\mu^-}\xspace}%
+%
+\def\piz{\ensuremath{\pi^0}\xspace}%
+\def\pip{\ensuremath{\pi^+}\xspace}%
+\def\pim{\ensuremath{\pi^-}\xspace}%
+\def\pipm{\ensuremath{\pi^\pm}\xspace}%
+\def\pimp{\ensuremath{\pi^\mp}\xspace}%
+%
+\def\K{\ensuremath{K}\xspace}%
+\def\Kp{\ensuremath{K^+}\xspace}%
+\def\Km{\ensuremath{K^-}\xspace}%
+\def\Kpm{\ensuremath{K^\pm}\xspace}%
+\def\Kmp{\ensuremath{K^\mp}\xspace}%
+\def\KKbar{\ensuremath{K\overline{K}}\xspace}%
+\def\Kz{\ensuremath{K^0}\xspace}%
+\def\Kzbar{\ensuremath{\overline{K}^0}\xspace}%
+\def\KzKzbar{\ensuremath{K^0\overline{K^0}}\xspace}%
+\def\Ks{\ensuremath{K_S^0}\xspace}%
+\def\Kl{\ensuremath{K_L^0}\xspace}%
+%
+\def\etaprime{\ensuremath{\eta\prm}\xspace}%
+\def\pione{\ensuremath{\pi_1}\xspace}%
+%
+\def\uquark{\ensuremath{u}\xspace}%
+\def\dquark{\ensuremath{d}\xspace}%
+\def\squark{\ensuremath{s}\xspace}%
+\def\cquark{\ensuremath{c}\xspace}%
+\def\bquark{\ensuremath{b}\xspace}%
+\def\tquark{\ensuremath{t}\xspace}%
+%
+\def\D{\ensuremath{D}\xspace}%
+\def\Dbar{\ensuremath{\overline{D}}\xspace}%
+\def\DDbar{\ensuremath{D\overline{D}}\xspace}%
+\def\DpDm{\ensuremath{D^+D^-}\xspace}%
+\def\Dz{\ensuremath{D^0}\xspace}%
+\def\Dzbar{\ensuremath{\overline{D}^0}\xspace}%
+\def\DzDzbar{\ensuremath{D^0\overline{D}^0}\xspace}%
+\def\Dx{\ensuremath{D^\ast}\xspace}%
+\def\Dxbar{\ensuremath{\overline{D}^\ast}\xspace}%
+\def\DxDxbar{\ensuremath{D^\ast\overline{D}^\ast}\xspace}%
+\def\Dxz{\ensuremath{D^{\ast 0}}\xspace}%
+\def\Dxzbar{\ensuremath{\overline{D}^{\ast 0}}\xspace}%
+\def\DbarDxx{\ensuremath{D\overline{D}^{\ast\ast}}\xspace}%
+%
+\def\Ds{\ensuremath{D_s}\xspace}%
+\def\Dspm{\ensuremath{D_s^\pm}\xspace}%
+\def\Dsmp{\ensuremath{D_s^\mp}\xspace}%
+\def\Dsx{\ensuremath{D_s^\ast}\xspace}%
+\def\Dsxpm{\ensuremath{D_s^{\ast\pm}}\xspace}%
+\def\Dsxmp{\ensuremath{D_s^{\ast\mp}}\xspace}%
+\def\DsDsbar{\ensuremath{D_s\overline{D_s}}\xspace}%
+\def\DspDsm{\ensuremath{D_s^+D_s^-}\xspace}%
+\def\DsxDsxbar{\ensuremath{D_s^\ast\overline{D_s}^\ast}\xspace}%
+\def\DsbarDsxx{\ensuremath{\overline{D_s}D_s^{\ast\ast}}\xspace}%
+%
+\def\jpsi{\ensuremath{J\!/\!\psi}\xspace}%
+\def\psiprime{\ensuremath{\psi\prm}\xspace}%
+\def\etac{\ensuremath{\eta_c}\xspace}%
+\def\etacprime{\ensuremath{\eta\prm_c}\xspace}%
+\def\chicJ{\ensuremath{\chi_{cJ}}\xspace}%
+\def\chiczero{\ensuremath{\chi_{c0}}\xspace}%
+\def\chicone{\ensuremath{\chi_{c1}}\xspace}%
+\def\chictwo{{\chi_{c2}}\xspace}%
+\def\honec{\ensuremath{h_c}\xspace}%
+%
+\def\Cascade{\ensuremath{\Xi}\xspace}%
+\def\Cascadebar{\ensuremath{\overline{\Xi}}\xspace}%
+\def\LambdaLambdabar{\ensuremath{\Lambda\overline{\Lambda}}\xspace}%
+\def\OmegaOmegabar{\ensuremath{\Omega\overline{\Omega}}\xspace}%
+\def\SigmaSigmabar{\ensuremath{\Sigma\overline{\Sigma}}\xspace}%
+\def\CascadeCascadebar{\ensuremath{\Xi\overline{\Xi}}\xspace}%
+%
+\def\kev{{\mbox{keV}}\xspace}%
+\def\kevcc{{\mbox{keV}\!/\!\mbox{\em c$^2$}}\xspace}%
+\def\mev{{\mbox{MeV}}\xspace}%
+\def\mevc{{\mbox{MeV}\!/\!\mbox{\em c}}\xspace}%
+\def\mevcc{{\mbox{MeV}\!/\!\mbox{\em c$^2$}}\xspace}%
+\def\mevccsq{{\mbox{MeV$^2$}\!/\!\mbox{\em c$^4$}}\xspace}%
+\def\gev{{\mbox{GeV}}\xspace}%
+\def\gevc{{\mbox{GeV}\!/\!\mbox{\em c}}\xspace}%
+\def\gevcsq{{\mbox{GeV$^2$}\!/\!\mbox{\em c$^2$}}\xspace}%
+\def\gevcc{{\mbox{GeV}\!/\!\mbox{\em c$^2$}}\xspace}%
+\def\gevccsq{{\mbox{GeV$^2$}\!/\!\mbox{\em c$^4$}}\xspace}%
+%
+\def\aC{{\mbox{aC}}\xspace}%
+%
+\def\barn{\ensuremath{\rm \,b}\xspace}
+\def\barnhyph{\ensuremath{\rm -b}\xspace}
+\def\mbarn{\ensuremath{\rm \,mb}\xspace}
+\def\mbarnhyph{\ensuremath{\rm -mb}\xspace}
+\def\mubarn{\ensuremath{\rm \,\mu b}\xspace}
+\def\nb{\ensuremath{\rm \,nb}\xspace}
+\def\pb {\ensuremath{\rm \,pb}\xspace}
+\def\invpb {\ensuremath{\mbox{\,pb}^{-1}}\xspace}
+\def\fb   {\ensuremath{\mbox{\,fb}}\xspace}
+\def\invfb   {\ensuremath{\mbox{\,fb}^{-1}}\xspace}
+%
+\def\JPC{\ensuremath{J^{\!P\!C}}\xspace}%
+\def\JPCzeropm{\ensuremath{0^{+-}}\xspace}%
+\def\JPCzeropp{\ensuremath{0^{++}}\xspace}%
+\def\JPCzeromm{\ensuremath{0^{--}}\xspace}%
+\def\JPCzeromp{\ensuremath{0^{-+}}\xspace}%
+\def\JPConepm{\ensuremath{1^{+-}}\xspace}%
+\def\JPConepp{\ensuremath{1^{++}}\xspace}%
+\def\JPConemm{\ensuremath{1^{--}}\xspace}%
+\def\JPConemp{\ensuremath{1^{-+}}\xspace}%
+\def\JPCtwopm{\ensuremath{2^{+-}}\xspace}%
+\def\JPCtwopp{\ensuremath{2^{++}}\xspace}%
+\def\JPCtwomm{\ensuremath{2^{--}}\xspace}%
+\def\JPCtwomp{\ensuremath{2^{-+}}\xspace}%
+%
+\def\JPCscalar{\JPCzeropp}%
+\def\JPCvector{\JPConemm}%
+\def\JPCtensor{\JPCtwopp}%
+%
+\def\extl{\ensuremath{E_{xtl}}\xspace}
+\def\ecl{\ensuremath{E_{cl}}\xspace}
+\def\emax{\ensuremath{E_{max}}\xspace}
+% EOF: def_panda_sym.tex
